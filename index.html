@@ -1,0 +1,1725 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Study plan, revision notes, interview presentation and exam-day checklist for an SRM Ramapuram Ph.D entrance.">
+<title>Priscilla's Ph.D Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&display=swap">
+<style>
+:root{color-scheme:light}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: field manual. A sticky section bar over one reading column (max 1080px); notes sit in an auto-fill card grid that drops to one column on phones; slides are 16:9 container-query canvases, reused full-screen in present mode. */
+:root{
+  --bg:#f3f5f9; --surface:#ffffff; --surface-2:#eaeef5; --ink:#141b2b; --muted:#566074; --line:#d6dbe5;
+  --accent:#2445c4; --accent-ink:#ffffff; --accent-soft:#e4e9fb;
+  --pass:#17784a; --pass-soft:#e2f3ea; --fail:#b5372c; --warn:#8a5d0c; --warn-soft:#fbf1dc; --warn-line:#e9d29e;
+  --fill:#fff0b3; --fill-ink:#4f3d00;
+  --font-display:"Newsreader","Iowan Old Style",Georgia,"Times New Roman",serif;
+  --font-body:"IBM Plex Sans","Segoe UI",Roboto,system-ui,-apple-system,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d1117; --surface:#151b25; --surface-2:#1c2431; --ink:#e4e8ef; --muted:#97a1b3; --line:#2a3343;
+    --accent:#90a7ff; --accent-ink:#0d1117; --accent-soft:#1c2647;
+    --pass:#54c48e; --pass-soft:#14301f; --fail:#f2766b; --warn:#e3b350; --warn-soft:#2c2414; --warn-line:#4d3f1f;
+    --fill:#3d3313; --fill-ink:#f4de8f;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d1117; --surface:#151b25; --surface-2:#1c2431; --ink:#e4e8ef; --muted:#97a1b3; --line:#2a3343;
+  --accent:#90a7ff; --accent-ink:#0d1117; --accent-soft:#1c2647;
+  --pass:#54c48e; --pass-soft:#14301f; --fail:#f2766b; --warn:#e3b350; --warn-soft:#2c2414; --warn-line:#4d3f1f;
+  --fill:#3d3313; --fill-ink:#f4de8f;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-text-size-adjust:100%}
+body.lock{overflow:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+p,li,td,th,dd{overflow-wrap:break-word}
+a{color:var(--accent);text-underline-offset:2px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+h1,h2,h3,h4{margin:0;text-wrap:balance}
+h1,h2{font-family:var(--font-display);font-weight:600;letter-spacing:-0.012em;line-height:1.08}
+h1{font-size:clamp(2.3rem,1.5rem + 3.4vw,3.8rem)}
+h2{font-size:clamp(1.65rem,1.25rem + 1.6vw,2.3rem)}
+h3{font-size:1.08rem;font-weight:600;line-height:1.3}
+p{margin:0}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:1080px;margin-left:auto;margin-right:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+mark.fill{background:var(--fill);color:var(--fill-ink);padding:0 .3em;border-radius:4px;font-style:normal}
+
+/* top bar */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--surface);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:14px;min-height:52px}
+.brand{font-family:var(--font-mono);font-size:.78rem;color:var(--muted);white-space:nowrap}
+.brand b{color:var(--ink);font-weight:600}
+.nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;min-width:0;flex:1;padding-block:8px}
+.nav::-webkit-scrollbar{display:none}
+.nav a{padding:6px 10px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:.88rem;white-space:nowrap}
+.nav a:hover{background:var(--surface-2)}
+.nav a.active{color:var(--accent);background:var(--accent-soft)}
+@media (max-width:760px){.brand{display:none}}
+
+/* buttons */
+.btn{font:500 .9rem/1.2 var(--font-body);padding:9px 14px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{border-color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.small{font-size:.8rem;padding:6px 10px}
+.btn.tiny{font-size:.74rem;padding:3px 8px;border-radius:6px}
+
+/* hero */
+.hero-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;padding-block:44px 26px}
+.hero-main{display:grid;gap:14px;min-width:0}
+.lede{font-size:1.1rem;color:var(--muted);max-width:60ch}
+.countdown{display:grid;gap:2px;justify-items:start;padding:18px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface);min-width:0}
+.countdown .k{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.countdown .big{font-family:var(--font-display);font-size:clamp(3rem,2.1rem + 3.6vw,4.4rem);line-height:1;font-weight:600;color:var(--accent);font-variant-numeric:lining-nums tabular-nums}
+.countdown .unit{font-weight:600}
+.countdown .date{font-size:.88rem;color:var(--muted)}
+@media (max-width:720px){.hero-in{grid-template-columns:1fr;padding-block:32px 20px}}
+
+/* sections */
+main section{padding-block:40px;border-top:1px solid var(--line);display:grid;gap:20px;scroll-margin-top:calc(56px + env(safe-area-inset-top,0px))}
+main section#overview{border-top:0;padding-top:4px}
+.sec-head{display:grid;gap:8px;max-width:72ch}
+.sec-head p{color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:13px 16px;display:grid;gap:3px;min-width:0;align-content:start}
+.fact .k{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.fact .v{font-weight:600;font-size:1.02rem;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.callout{border:1px solid var(--warn-line);background:var(--warn-soft);border-radius:10px;padding:12px 16px;display:grid;gap:4px}
+.callout .lbl{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--warn);font-weight:600}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:14px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;gap:10px;align-content:start;min-width:0}
+.panel ul{margin:0;padding-left:1.15em;display:grid;gap:6px}
+.timeline{list-style:none;margin:0;padding:0;display:grid}
+.timeline li{display:grid;grid-template-columns:6.4rem minmax(0,1fr);gap:12px;padding:9px 0;border-top:1px solid var(--line)}
+.timeline li:first-child{border-top:0;padding-top:0}
+.timeline .d{font-family:var(--font-mono);font-size:.84rem;font-variant-numeric:tabular-nums;color:var(--muted)}
+.timeline .e small{display:block;color:var(--muted);font-size:.84rem}
+.chip{display:inline-block;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;padding:1px 7px;border-radius:99px;vertical-align:1px;margin-left:6px}
+.chip.pass{background:var(--pass-soft);color:var(--pass)}
+.chip.key{background:var(--accent-soft);color:var(--accent)}
+.contact{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+
+/* plan */
+.progress{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.pbar{flex:1 1 200px;height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.pbar span{display:block;height:100%;width:0;background:var(--pass);transition:width .3s}
+.progress .mono{font-size:.85rem;color:var(--muted)}
+.rhythm{display:flex;flex-wrap:wrap;gap:8px}
+.rhythm span{font-size:.85rem;padding:4px 10px;border:1px solid var(--line);border-radius:99px;background:var(--surface)}
+.phase{display:grid;gap:10px}
+.phase-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.phase-h h3{font-family:var(--font-display);font-size:1.35rem;font-weight:600}
+.phase-h .mono{font-size:.8rem;color:var(--muted)}
+.day{display:grid;grid-template-columns:auto 6.4rem minmax(0,1fr);gap:4px 14px;align-items:start;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.day .tick{padding-top:2px;display:block}
+.day input,.check input{width:20px;height:20px;accent-color:var(--pass);margin:0;cursor:pointer}
+.day .when{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);display:grid;gap:2px;align-content:start}
+.day .when b{color:var(--ink);font-size:.92rem;font-weight:600}
+.day h4{font-size:1rem;font-weight:600}
+.day ul{margin:6px 0 0;padding-left:1.1em;display:grid;gap:3px}
+.day .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{font-family:var(--font-mono);font-size:.68rem;padding:1px 8px;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+.day.done{background:var(--surface-2)}
+.day.done h4{text-decoration:line-through;text-decoration-color:var(--muted)}
+.day.is-today{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.today-chip{display:inline-block;width:max-content;margin-top:4px;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);padding:1px 7px;border-radius:99px}
+.day.exam{background:var(--accent-soft);border-color:var(--accent)}
+.day.exam .flag{width:20px;height:20px;border-radius:50%;background:var(--accent);margin-top:2px}
+@media (max-width:600px){
+  .day{grid-template-columns:auto minmax(0,1fr)}
+  .day .when{grid-auto-flow:column;justify-content:start;gap:10px;align-items:baseline}
+  .day .what{grid-column:1/-1}
+}
+
+/* notes */
+.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.search{flex:1 1 240px;max-width:420px;font:inherit;font-size:.95rem;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.search::placeholder{color:var(--muted)}
+.notes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:14px;align-items:start}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;gap:10px;min-width:0;font-size:.94rem;line-height:1.55}
+.note h3{font-size:1.04rem}
+.note ul,.note ol{margin:0;padding-left:1.15em;display:grid;gap:5px}
+.note .src{font-size:.8rem;color:var(--muted)}
+.formula{font-family:var(--font-mono);font-size:.84rem;background:var(--surface-2);border-radius:6px;padding:6px 10px;overflow-x:auto;white-space:nowrap}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.85rem}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:500}
+td.n,th.n{font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.empty{color:var(--muted);font-style:italic}
+
+/* slides */
+.deck{display:grid;gap:30px}
+.slide-item{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:880px){.slide-item{grid-template-columns:1fr}}
+.slide-col{display:grid;gap:10px;justify-items:start;min-width:0}
+.slide{container-type:inline-size;position:relative;aspect-ratio:16/9;width:100%;max-width:100%;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.sc{position:absolute;inset:0;display:flex;flex-direction:column;gap:1.9cqw;padding:4.4cqw 5.4cqw 4.8cqw;font-size:2cqw;line-height:1.36}
+.sc .k{font-family:var(--font-mono);font-size:1.3cqw;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.sc h3{font-family:var(--font-display);font-weight:600;font-size:4cqw;line-height:1.08;letter-spacing:-0.01em}
+.sc ul{margin:0;padding-left:1.15em;display:grid;gap:1cqw}
+.sc li::marker{color:var(--accent)}
+.sc .foot{margin-top:auto;font-size:1.75cqw;color:var(--muted);font-style:italic}
+.sc .sno{position:absolute;right:2.4cqw;bottom:2cqw;font-family:var(--font-mono);font-size:1.15cqw;color:var(--muted)}
+.sc mark.fill{padding:0 .25em;border-radius:.4cqw}
+.sc-title{justify-content:flex-end;gap:1.6cqw;padding-bottom:6cqw}
+.sc-title .deco{position:absolute;top:4.4cqw;left:5.4cqw;right:5.4cqw;font-family:var(--font-mono);font-size:1.45cqw;color:var(--muted);opacity:.85}
+.sc-title .deco b{color:var(--pass);font-weight:500}
+.sc-title h3{font-size:5.6cqw;max-width:80%}
+.sc-title .sub{font-size:2.3cqw;color:var(--muted);max-width:75%}
+.sc-title .meta{display:flex;flex-wrap:wrap;gap:.6cqw 2.4cqw;font-size:1.55cqw;margin-top:1.6cqw;padding-top:1.6cqw;border-top:.12cqw solid var(--line)}
+.sc-title .meta b{font-weight:600}
+.sc .cols{display:grid;grid-template-columns:1fr 1fr;gap:3.2cqw;align-items:start;font-size:1.82cqw}
+.sc .cols h4{font-family:var(--font-mono);font-size:1.25cqw;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:1cqw}
+.funnel{display:grid;gap:1.3cqw}
+.fr{display:grid;grid-template-columns:13cqw minmax(0,1fr) 5cqw;align-items:center;gap:1.1cqw;font-size:1.55cqw}
+.ft{height:2.3cqw;background:var(--surface-2);border-radius:.5cqw;overflow:hidden}
+.fb{display:block;height:100%;background:var(--accent);border-radius:.5cqw}
+.fv{font-family:var(--font-mono);font-weight:600;text-align:right}
+.fcap{font-size:1.2cqw;color:var(--muted);line-height:1.35}
+.probs{display:grid;grid-template-columns:1fr 1fr;gap:1.6cqw 3cqw}
+.prob{display:grid;gap:.4cqw;font-size:1.72cqw;line-height:1.32}
+.prob .t{font-family:var(--font-mono);font-size:1.22cqw;text-transform:uppercase;letter-spacing:.06em;color:var(--fail);font-weight:500}
+.gapbox{border:.16cqw solid var(--accent);background:var(--accent-soft);border-radius:1cqw;padding:1.5cqw 2cqw;font-size:1.78cqw;line-height:1.35;font-weight:500;margin-top:auto}
+.rqs{display:grid;gap:1.7cqw}
+.rq{display:grid;grid-template-columns:6.4cqw minmax(0,1fr);gap:1.4cqw;align-items:baseline;font-size:2cqw}
+.rq b{font-family:var(--font-mono);color:var(--accent);font-size:1.75cqw;font-weight:600}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:.9cqw;align-items:stretch}
+.flow2{display:grid;grid-template-columns:1fr auto 1fr;gap:.9cqw;align-items:stretch;width:60%}
+.fbox{border:.15cqw solid var(--line);border-radius:1cqw;padding:1.2cqw 1.3cqw;background:var(--surface-2);display:grid;gap:.4cqw;align-content:start;font-size:1.45cqw;line-height:1.28;color:var(--muted)}
+.fbox b{font-size:1.68cqw;color:var(--ink);font-weight:600}
+.fbox.out{background:var(--pass-soft);border-color:var(--pass)}
+.fbox.out b{color:var(--pass)}
+.farr{align-self:center;color:var(--muted);font-size:2.2cqw}
+.loop{border:.15cqw dashed var(--accent);color:var(--accent);border-radius:1cqw;padding:1cqw 1.4cqw;font-size:1.55cqw;margin-left:27%;line-height:1.3}
+.years{display:grid;grid-template-columns:repeat(3,1fr);gap:2cqw}
+.yr{border-top:.3cqw solid var(--accent);padding-top:1cqw;display:grid;gap:.6cqw;font-size:1.6cqw;line-height:1.3;align-content:start}
+.yr b{font-family:var(--font-mono);font-size:1.3cqw;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
+.yr ul{gap:.5cqw;padding-left:1em}
+.sc .outc{font-size:1.65cqw;line-height:1.35}
+.sc .venues{font-size:1.4cqw;color:var(--muted);line-height:1.35}
+.sc .refs-s{font-size:1.38cqw;color:var(--muted);line-height:1.35;gap:.6cqw}
+.sc-end h3{font-size:5.2cqw}
+.say-col{display:grid;gap:8px;min-width:0}
+.say-meta{font-size:.76rem;color:var(--muted)}
+.say{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:8px;font-size:.95rem}
+.say .tip{font-size:.86rem;color:var(--muted)}
+
+/* presenter */
+.presenter{position:fixed;inset:0;z-index:50;background:var(--bg);display:grid;grid-template-rows:minmax(0,1fr) auto auto;gap:12px;padding-top:max(12px,env(safe-area-inset-top,0px));padding-bottom:max(12px,env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.stage-wrap{min-height:0;display:grid;place-items:center}
+.stage{width:100%}
+.stage .slide{border-radius:12px}
+.p-notes{max-height:26vh;overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;display:grid;gap:8px;font-size:.95rem}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.ctrl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.timer{font-size:1rem;padding:6px 10px;border-radius:8px;background:var(--surface);border:1px solid var(--line)}
+.timer.over{color:var(--fail);border-color:var(--fail)}
+
+/* proposal, questions, checklist, reading */
+.doc{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:clamp(18px,3vw,34px);display:grid;gap:18px;max-width:80ch}
+.doc .t{font-family:var(--font-display);font-size:clamp(1.35rem,1.1rem + 1vw,1.7rem);font-weight:600;line-height:1.2}
+.doc h4{font-family:var(--font-mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:500;margin-bottom:6px}
+.doc ul,.doc ol{margin:0;padding-left:1.2em;display:grid;gap:5px}
+.pitch{font-family:var(--font-display);font-size:1.18rem;line-height:1.45}
+.qa-groups{display:grid;gap:26px}
+.qa-group{display:grid;gap:10px}
+.qa-group h3{font-family:var(--font-display);font-size:1.3rem}
+.qa{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:13px 16px;display:grid;grid-template-columns:2.2rem minmax(0,1fr);gap:4px 10px}
+.qa .n{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);padding-top:2px}
+.qa .q{font-weight:600}
+.qa .a{grid-column:2;color:var(--ink);font-size:.95rem}
+.tips{background:var(--accent-soft);border-radius:10px;padding:14px 16px;display:grid;gap:6px}
+.checklist{display:grid;gap:8px}
+.check{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer}
+.check input{margin-top:2px;flex:none}
+.check span{min-width:0}
+.check.done{background:var(--surface-2);color:var(--muted)}
+.check small{color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0;display:grid}
+.steps li{display:grid;grid-template-columns:6.4rem minmax(0,1fr);gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.steps li:first-child{border-top:0;padding-top:0}
+.steps .d{font-family:var(--font-mono);font-size:.84rem;color:var(--muted)}
+.refs{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.refs li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;overflow-wrap:anywhere}
+.refs .why{display:block;color:var(--muted);font-size:.88rem;margin-top:3px}
+.ref-h{font-family:var(--font-display);font-size:1.3rem;font-weight:600;margin-top:6px}
+footer{border-top:1px solid var(--line);padding-block:26px 40px;color:var(--muted);font-size:.86rem}
+footer .wrap{display:grid;gap:6px}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <span class="brand"><b>Ph.D Prep</b> · SRM Ramapuram</span>
+    <nav class="nav" aria-label="Sections">
+      <a href="#overview">Overview</a>
+      <a href="#plan">Study plan</a>
+      <a href="#rm">Research methods</a>
+      <a href="#cse">CS notes</a>
+      <a href="#talk">Presentation</a>
+      <a href="#proposal">Proposal</a>
+      <a href="#questions">Questions</a>
+      <a href="#day">Exam day</a>
+      <a href="#reading">Reading</a>
+    </nav>
+  </div>
+</div>
+
+<header class="wrap">
+  <div class="hero-in">
+    <div class="hero-main">
+      <p class="eyebrow">SRM IST Ramapuram · Ph.D, full-time · Computer Science and Engineering</p>
+      <h1>Priscilla's Ph.D Prep</h1>
+      <p class="lede">Everything for the entrance test and interview in one place: what to study each day, revision notes, the 10-minute research presentation, likely questions, and what to carry on the day.</p>
+    </div>
+    <aside class="countdown" aria-label="Countdown to the entrance test">
+      <span class="k">Entrance test + interview</span>
+      <span class="big" id="cd-num">19</span>
+      <span class="unit" id="cd-unit">days to go</span>
+      <span class="date">Sunday 15 November 2026</span>
+    </aside>
+  </div>
+</header>
+
+<main>
+<section id="overview" class="wrap" aria-label="Overview">
+  <div class="facts">
+    <div class="fact"><span class="k">Campus</span><span class="v">SRM IST Ramapuram, Chennai</span></div>
+    <div class="fact"><span class="k">Programme</span><span class="v">Ph.D, Computer Science and Engineering</span></div>
+    <div class="fact"><span class="k">Mode</span><span class="v">Full-time with fellowship</span></div>
+    <div class="fact"><span class="k">Area of interest</span><span class="v">AI-assisted software quality assurance</span></div>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">Date check</span>
+    <p>Ramapuram's application page lists the test and interview on <b>Sunday 15 November</b>. SRM's university-wide Ph.D page lists <b>Saturday 14 November</b>. Go by the hall ticket. If it says the 14th, finish the plan a day early.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>Key dates</h3>
+      <ol class="timeline">
+        <li><span class="d">27 Oct</span><span class="e">Application submitted<span class="chip pass">Done</span></span></li>
+        <li><span class="d">31 Oct</span><span class="e">Applications close</span></li>
+        <li><span class="d">15 Nov</span><span class="e">Entrance test + interview<span class="chip key">Ramapuram campus</span><small>In person. Check the hall ticket for the exact date and time.</small></span></li>
+        <li><span class="d">20 Nov</span><span class="e">List of selected candidates</span></li>
+        <li><span class="d">15 Dec</span><span class="e">Last date to pay the fee</span></li>
+        <li><span class="d">21 Dec</span><span class="e">Report to the Directorate of Research</span></li>
+        <li><span class="d">2 Jan 2027</span><span class="e">Provisional registration<small>The Ph.D duration is counted from this date.</small></span></li>
+      </ol>
+    </div>
+    <div class="panel">
+      <h3>How selection works</h3>
+      <ul>
+        <li><b>Written test:</b> half research methodology, half Computer Science.</li>
+        <li><b>Score at least 50%</b> to be called for the interview.</li>
+        <li><b>Interview:</b> she presents her research interest to the department's research committee. They judge whether she can do the research, whether SRM can support it, and whether it can add new knowledge.</li>
+        <li><b>Final ranking:</b> 70% written test + 30% interview.</li>
+        <li>Seats depend on supervisors with free slots, so fit with a supervisor's area matters.</li>
+        <li>SRM hasn't published the paper's format. Most Ph.D entrance tests are multiple choice, so practise MCQs but be ready to write short definitions.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Money</h3>
+      <ul>
+        <li><b>Stipend:</b> ₹31,000 a month for up to 3 years, renewed each year on research progress. (₹37,000 for scholars who qualified in NET/JRF/GATE/GPAT.)</li>
+        <li><b>Fees:</b> ₹10,000 registration (once), ₹30,000 for the first semester, ₹15,000 for each later semester. About ₹1.15 lakh over 3 years.</li>
+        <li><b>First payment, by 15 Dec:</b> likely ₹40,000. Confirm the exact amount on the portal.</li>
+        <li><b>If she withdraws:</b> before joining, only ₹1,000 is deducted; within 30 days of joining, 50% back; after 30 days, nothing.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Contacts</h3>
+      <div class="contact"><span>Helpdesk (toll-free):</span><span class="mono" id="ph">1800 102 1525</span><button class="btn tiny" type="button" data-copy="18001021525" data-target="ph">Copy</button></div>
+      <div class="contact"><span>Email:</span><span class="mono" id="em">helpdesk@srmrmp.edu.in</span><button class="btn tiny" type="button" data-copy="helpdesk@srmrmp.edu.in" data-target="em">Copy</button></div>
+      <p>Queries: the <b>“?”</b> button on the application dashboard.</p>
+      <p>Venue: SRM IST, Bharathi Salai, Ramapuram, Chennai 600 089.</p>
+      <p><a href="https://registration.srmrmp.edu.in/ph-d-application-form-2027" target="_blank" rel="noopener">Application portal (log in here)</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="plan" class="wrap" aria-labelledby="plan-h">
+  <div class="sec-head">
+    <p class="eyebrow">27 October to 15 November</p>
+    <h2 id="plan-h">19-day study plan</h2>
+    <p>About three focused hours a day. Tick each day as you finish it; ticks are saved in this browser only.</p>
+  </div>
+  <div class="rhythm" aria-label="Daily rhythm">
+    <span>90 min · learn the day's topic</span><span>45 min · practice questions</span><span>30 min · presentation</span><span>15 min · recap from memory</span>
+  </div>
+  <div class="progress"><div class="pbar"><span id="plan-bar"></span></div><span class="mono" id="plan-count">0 of 19 days done</span></div>
+
+  <div class="phase">
+    <div class="phase-h"><h3>Foundations</h3><span class="mono">27 Oct – 2 Nov</span></div>
+
+    <div class="day" data-date="2026-10-27">
+      <label class="tick"><input type="checkbox" id="plan-d1" data-key="plan-d1" data-group="plan"><span class="sr">Mark day 1 done</span></label>
+      <div class="when"><b>Day 1</b>Tue 27 Oct</div>
+      <div class="what"><h4>Research basics</h4>
+        <ul><li>What research is, the types of research, and the 11-step research process.</li><li>Read this whole page once.</li><li>Read all 10 slides and their notes.</li></ul>
+        <div class="tags"><span class="tag">Research methods</span><span class="tag">Presentation</span></div></div>
+    </div>
+    <div class="day" data-date="2026-10-28">
+      <label class="tick"><input type="checkbox" id="plan-d2" data-key="plan-d2" data-group="plan"><span class="sr">Mark day 2 done</span></label>
+      <div class="when"><b>Day 2</b>Wed 28 Oct</div>
+      <div class="what"><h4>Problem, literature, hypotheses</h4>
+        <ul><li>Formulating a research problem, literature review and sources, research questions, null and alternative hypotheses, kinds of variables.</li><li>Fill in the yellow boxes on slide 2 (your M.E. project and what you've done since 2014).</li></ul>
+        <div class="tags"><span class="tag">Research methods</span><span class="tag">Presentation</span></div></div>
+    </div>
+    <div class="day" data-date="2026-10-29">
+      <label class="tick"><input type="checkbox" id="plan-d3" data-key="plan-d3" data-group="plan"><span class="sr">Mark day 3 done</span></label>
+      <div class="when"><b>Day 3</b>Thu 29 Oct</div>
+      <div class="what"><h4>Research design and sampling</h4>
+        <ul><li>Exploratory, descriptive and experimental designs; Fisher's three principles; cross-sectional vs longitudinal.</li><li>All nine sampling methods; sampling vs non-sampling error.</li><li>25 research-methods MCQs.</li></ul>
+        <div class="tags"><span class="tag">Research methods</span></div></div>
+    </div>
+    <div class="day" data-date="2026-10-30">
+      <label class="tick"><input type="checkbox" id="plan-d4" data-key="plan-d4" data-group="plan"><span class="sr">Mark day 4 done</span></label>
+      <div class="when"><b>Day 4</b>Fri 30 Oct</div>
+      <div class="what"><h4>Data, scales, reliability, validity</h4>
+        <ul><li>Primary vs secondary data; questionnaire vs schedule vs interview vs observation.</li><li>Nominal, ordinal, interval and ratio scales; Likert; reliability and validity types; threats to validity.</li><li>25 research-methods MCQs.</li></ul>
+        <div class="tags"><span class="tag">Research methods</span></div></div>
+    </div>
+    <div class="day" data-date="2026-10-31">
+      <label class="tick"><input type="checkbox" id="plan-d5" data-key="plan-d5" data-group="plan"><span class="sr">Mark day 5 done</span></label>
+      <div class="when"><b>Day 5</b>Sat 31 Oct</div>
+      <div class="what"><h4>Software engineering</h4>
+        <ul><li>Process models, Agile and Scrum, requirements, cohesion and coupling, UML, COCOMO, function points, CMMI, quality models.</li><li>Rehearse slides 1–5 aloud.</li></ul>
+        <div class="tags"><span class="tag">Computer science</span><span class="tag">Presentation</span></div></div>
+    </div>
+    <div class="day" data-date="2026-11-01">
+      <label class="tick"><input type="checkbox" id="plan-d6" data-key="plan-d6" data-group="plan"><span class="sr">Mark day 6 done</span></label>
+      <div class="when"><b>Day 6</b>Sun 1 Nov</div>
+      <div class="what"><h4>Software testing, your home ground</h4>
+        <ul><li>Test levels; black-box and white-box techniques; boundary values (4n + 1); cyclomatic complexity; coverage; mutation score; APFD; test oracles; flaky tests.</li><li>Read the abstract of Meta's TestGen-LLM paper (Reading list).</li></ul>
+        <div class="tags"><span class="tag">Computer science</span><span class="tag">Your topic</span></div></div>
+    </div>
+    <div class="day" data-date="2026-11-02">
+      <label class="tick"><input type="checkbox" id="plan-d7" data-key="plan-d7" data-group="plan"><span class="sr">Mark day 7 done</span></label>
+      <div class="when"><b>Day 7</b>Mon 2 Nov</div>
+      <div class="what"><h4>Statistics for research</h4>
+        <ul><li>Mean, median, mode, SD, correlation, regression; hypothesis-testing steps; Type I and II errors; p-values; which test when.</li><li>Work 10 small numericals by hand.</li><li>Rehearse slides 6–10 aloud.</li></ul>
+        <div class="tags"><span class="tag">Research methods</span><span class="tag">Presentation</span></div></div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-h"><h3>Core computer science and ethics</h3><span class="mono">3 – 9 Nov</span></div>
+
+    <div class="day" data-date="2026-11-03">
+      <label class="tick"><input type="checkbox" id="plan-d8" data-key="plan-d8" data-group="plan"><span class="sr">Mark day 8 done</span></label>
+      <div class="when"><b>Day 8</b>Tue 3 Nov</div>
+      <div class="what"><h4>Research and publication ethics</h4>
+        <ul><li>Fabrication, falsification, plagiarism; UGC 2018 similarity levels; authorship; predatory journals; indexing and metrics; peer review; intellectual property; open access; citation styles.</li><li>25 research-methods MCQs.</li></ul>
+        <div class="tags"><span class="tag">Research methods</span></div></div>
+    </div>
+    <div class="day" data-date="2026-11-04">
+      <label class="tick"><input type="checkbox" id="plan-d9" data-key="plan-d9" data-group="plan"><span class="sr">Mark day 9 done</span></label>
+      <div class="when"><b>Day 9</b>Wed 4 Nov</div>
+      <div class="what"><h4>Data structures and algorithms</h4>
+        <ul><li>Complexity table, sorting, trees, hashing, graph algorithms, greedy vs dynamic programming, master theorem, P and NP.</li><li>20 GATE-style MCQs.</li></ul>
+        <div class="tags"><span class="tag">Computer science</span></div></div>
+    </div>
+    <div class="day" data-date="2026-11-05">
+      <label class="tick"><input type="checkbox" id="plan-d10" data-key="plan-d10" data-group="plan"><span class="sr">Mark day 10 done</span></label>
+      <div class="when"><b>Day 10</b>Thu 5 Nov</div>
+      <div class="what"><h4>Databases</h4>
+        <ul><li>Keys, normal forms up to BCNF, SQL, relational algebra, ACID, isolation levels, two-phase locking, indexes.</li><li>Look up 2–3 CSE faculty at Ramapuram who work on software testing, software engineering or AI; note one paper each.</li></ul>
+        <div class="tags"><span class="tag">Computer science</span><span class="tag">Interview</span></div></div>
+    </div>
+    <div class="day" data-date="2026-11-06">
+      <label class="tick"><input type="checkbox" id="plan-d11" data-key="plan-d11" data-group="plan"><span class="sr">Mark day 11 done</span></label>
+      <div class="when"><b>Day 11</b>Fri 6 Nov</div>
+      <div class="what"><h4>Operating systems</h4>
+        <ul><li>Scheduling with numericals, synchronisation, deadlock and Banker's algorithm, paging, page replacement, thrashing.</li><li>First full timed run of the presentation (aim for 10 minutes).</li></ul>
+        <div class="tags"><span class="tag">Computer science</span><span class="tag">Presentation</span></div></div>
+    </div>
+    <div class="day" data-date="2026-11-07">
+      <label class="tick"><input type="checkbox" id="plan-d12" data-key="plan-d12" data-group="plan"><span class="sr">Mark day 12 done</span></label>
+      <div class="when"><b>Day 12</b>Sat 7 Nov</div>
+      <div class="what"><h4>Networks and theory of computation</h4>
+        <ul><li>OSI and TCP/IP, TCP vs UDP, subnetting, ports, routing.</li><li>Automata, Chomsky hierarchy, pumping lemma, decidability, compiler phases.</li><li>20 MCQs.</li></ul>
+        <div class="tags"><span class="tag">Computer science</span></div></div>
+    </div>
+    <div class="day" data-date="2026-11-08">
+      <label class="tick"><input type="checkbox" id="plan-d13" data-key="plan-d13" data-group="plan"><span class="sr">Mark day 13 done</span></label>
+      <div class="when"><b>Day 13</b>Sun 8 Nov</div>
+      <div class="what"><h4>AI, machine learning and LLMs</h4>
+        <ul><li>Learning types, overfitting, precision/recall/F1, common algorithms, neural networks, transformers, LLM terms (tokens, temperature, RAG, fine-tuning, hallucination).</li><li>Second timed run of the presentation.</li></ul>
+        <div class="tags"><span class="tag">Computer science</span><span class="tag">Presentation</span></div></div>
+    </div>
+    <div class="day" data-date="2026-11-09">
+      <label class="tick"><input type="checkbox" id="plan-d14" data-key="plan-d14" data-group="plan"><span class="sr">Mark day 14 done</span></label>
+      <div class="when"><b>Day 14</b>Mon 9 Nov</div>
+      <div class="what"><h4>Your topic, in depth</h4>
+        <ul><li>Read the abstracts of the first five papers in the Reading list.</li><li>Write five takeaways in your own words.</li><li>Prepare spoken answers to questions 1–11.</li></ul>
+        <div class="tags"><span class="tag">Your topic</span><span class="tag">Interview</span></div></div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-h"><h3>Mock tests and polish</h3><span class="mono">10 – 15 Nov</span></div>
+
+    <div class="day" data-date="2026-11-10">
+      <label class="tick"><input type="checkbox" id="plan-d15" data-key="plan-d15" data-group="plan"><span class="sr">Mark day 15 done</span></label>
+      <div class="when"><b>Day 15</b>Tue 10 Nov</div>
+      <div class="what"><h4>Mock test: research methods</h4>
+        <ul><li>50 MCQs in 60 minutes. UGC-NET Paper 1 research-aptitude questions work well.</li><li>Review every wrong answer against the notes.</li></ul>
+        <div class="tags"><span class="tag">Mock test</span></div></div>
+    </div>
+    <div class="day" data-date="2026-11-11">
+      <label class="tick"><input type="checkbox" id="plan-d16" data-key="plan-d16" data-group="plan"><span class="sr">Mark day 16 done</span></label>
+      <div class="when"><b>Day 16</b>Wed 11 Nov</div>
+      <div class="what"><h4>Mock test: computer science</h4>
+        <ul><li>50 MCQs in 60 minutes from GATE CS previous-year papers.</li><li>Re-read the notes for your two weakest subjects.</li></ul>
+        <div class="tags"><span class="tag">Mock test</span></div></div>
+    </div>
+    <div class="day" data-date="2026-11-12">
+      <label class="tick"><input type="checkbox" id="plan-d17" data-key="plan-d17" data-group="plan"><span class="sr">Mark day 17 done</span></label>
+      <div class="when"><b>Day 17</b>Thu 12 Nov</div>
+      <div class="what"><h4>Mock interview</h4>
+        <ul><li>Present to Arul or a friend for 10 minutes, then take 15 minutes of questions from the list.</li><li>Fix the slides where you stumbled; prepare questions 12–22.</li></ul>
+        <div class="tags"><span class="tag">Presentation</span><span class="tag">Interview</span></div></div>
+    </div>
+    <div class="day" data-date="2026-11-13">
+      <label class="tick"><input type="checkbox" id="plan-d18" data-key="plan-d18" data-group="plan"><span class="sr">Mark day 18 done</span></label>
+      <div class="when"><b>Day 18</b>Fri 13 Nov</div>
+      <div class="what"><h4>Final revision</h4>
+        <ul><li>Formulas and definitions only; 30 mixed MCQs.</li><li>Save the slides as PDF and PowerPoint on a pen drive and email them to yourself.</li><li>Print two copies of the one-page proposal.</li></ul>
+        <div class="tags"><span class="tag">Revision</span></div></div>
+    </div>
+    <div class="day" data-date="2026-11-14">
+      <label class="tick"><input type="checkbox" id="plan-d19" data-key="plan-d19" data-group="plan"><span class="sr">Mark day 19 done</span></label>
+      <div class="when"><b>Day 19</b>Sat 14 Nov</div>
+      <div class="what"><h4>Light day</h4>
+        <ul><li>Light revision only. Pack using the exam-day checklist.</li><li>Confirm the reporting time and room on the hall ticket. Sleep early.</li></ul>
+        <div class="tags"><span class="tag">Logistics</span></div></div>
+    </div>
+    <div class="day exam" data-date="2026-11-15">
+      <span class="flag" aria-hidden="true"></span>
+      <div class="when"><b>Exam day</b>Sun 15 Nov</div>
+      <div class="what"><h4>Entrance test and interview at Ramapuram</h4>
+        <ul><li>Reach 45–60 minutes before reporting time. Eat before you go and carry water.</li><li>In the test, answer what you know first, then return to the rest.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="rm" class="wrap" aria-labelledby="rm-h">
+  <div class="sec-head">
+    <p class="eyebrow">Half of the written test</p>
+    <h2 id="rm-h">Research methodology notes</h2>
+    <p>Definitions and formulas that come up again and again. Type a word to filter the cards.</p>
+  </div>
+  <div class="toolbar"><label class="sr" for="rm-filter">Filter research methodology notes</label><input class="search" id="rm-filter" type="search" placeholder="Filter, e.g. sampling, p-value, h-index" autocomplete="off"></div>
+  <p class="empty" id="rm-empty" hidden>No notes match. Try a shorter word.</p>
+  <div class="notes-grid" id="rm-grid">
+
+    <article class="note"><h3>Research and its types</h3>
+      <p>Research is a systematic, objective search for new knowledge or for answers to a defined question. Good research is systematic, logical, empirical, replicable and ethical.</p>
+      <ul>
+        <li><b>Basic</b> (fundamental, new theory) vs <b>applied</b> (solves a practical problem)</li>
+        <li><b>Descriptive</b> (describes what is) vs <b>analytical</b> (evaluates using existing facts)</li>
+        <li><b>Quantitative</b> (numbers, statistics) vs <b>qualitative</b> (meanings, themes); both together = mixed methods</li>
+        <li><b>Conceptual</b> (ideas, theory) vs <b>empirical</b> (observation, experiment)</li>
+        <li><b>Exploratory</b> (finds the questions) vs <b>explanatory/causal</b> (tests cause and effect)</li>
+        <li><b>Cross-sectional</b> (one point in time) vs <b>longitudinal</b> (same subjects over time)</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>The research process (Kothari)</h3>
+      <ol>
+        <li>Formulate the research problem</li>
+        <li>Extensive literature survey</li>
+        <li>Develop the hypothesis</li>
+        <li>Prepare the research design</li>
+        <li>Determine the sample design</li>
+        <li>Collect the data</li>
+        <li>Execute the project</li>
+        <li>Analyse the data</li>
+        <li>Test the hypothesis</li>
+        <li>Generalise and interpret</li>
+        <li>Prepare the report</li>
+      </ol>
+      <p class="src">Research methods are the techniques you use; research methodology is the reasoning behind choosing them.</p>
+    </article>
+
+    <article class="note"><h3>Problem, questions and hypotheses</h3>
+      <ul>
+        <li><b>Research problem:</b> a gap or difficulty stated precisely. Check it is researchable, significant, feasible (time, data, skills) and ethical.</li>
+        <li><b>Research question:</b> what you will answer, e.g. “Does mutation feedback raise the fault-detection rate of LLM-written tests?”</li>
+        <li><b>Hypothesis:</b> a testable prediction. H<sub>0</sub> (null): no effect or difference. H<sub>1</sub> (alternative): an effect exists.</li>
+        <li>A good hypothesis is clear, specific, testable, stated before data collection and consistent with known facts.</li>
+        <li>Directional hypothesis → one-tailed test; non-directional → two-tailed.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Variables</h3>
+      <ul>
+        <li><b>Independent:</b> what you change (e.g. prompting strategy)</li>
+        <li><b>Dependent:</b> what you measure (e.g. mutation score)</li>
+        <li><b>Control:</b> kept constant (same projects, same time budget)</li>
+        <li><b>Extraneous / confounding:</b> uncontrolled factors that distort results (e.g. a model has already seen the benchmark)</li>
+        <li><b>Moderating:</b> changes the strength of a relationship. <b>Mediating:</b> explains how the effect happens.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Research design</h3>
+      <ul>
+        <li><b>Exploratory (formulative):</b> flexible; literature, expert surveys, case studies.</li>
+        <li><b>Descriptive / diagnostic:</b> accurate description; surveys, observation.</li>
+        <li><b>Experimental (hypothesis-testing):</b> manipulate the independent variable. A true experiment needs random assignment and a control group; a quasi-experiment lacks random assignment.</li>
+        <li><b>Fisher's principles</b> of experimental design: replication, randomisation, local control.</li>
+        <li>Others: case study, ex post facto (after the event), action research, survey research.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Sampling</h3>
+      <div class="tw"><table>
+        <thead><tr><th>Method</th><th>How it works</th></tr></thead>
+        <tbody>
+          <tr><td colspan="2"><b>Probability</b></td></tr>
+          <tr><td>Simple random</td><td>every unit has an equal chance (lottery, random numbers)</td></tr>
+          <tr><td>Systematic</td><td>every k-th unit after a random start, k = N ÷ n</td></tr>
+          <tr><td>Stratified</td><td>split into groups (strata), sample from each</td></tr>
+          <tr><td>Cluster</td><td>randomly pick whole groups</td></tr>
+          <tr><td>Multi-stage</td><td>sample in stages, e.g. states → districts → colleges</td></tr>
+          <tr><td colspan="2"><b>Non-probability</b></td></tr>
+          <tr><td>Convenience</td><td>whoever is easy to reach</td></tr>
+          <tr><td>Purposive / judgement</td><td>chosen by the researcher's judgement</td></tr>
+          <tr><td>Quota</td><td>fixed numbers per category, picked non-randomly</td></tr>
+          <tr><td>Snowball</td><td>participants refer others (hard-to-reach groups)</td></tr>
+        </tbody>
+      </table></div>
+      <p><b>Sampling error</b> comes from studying a sample and shrinks as n grows. <b>Non-sampling error</b> (measurement, response, processing mistakes) can happen even in a census.</p>
+    </article>
+
+    <article class="note"><h3>Collecting data</h3>
+      <ul>
+        <li><b>Primary</b> (first-hand): questionnaire (filled by respondents), schedule (filled by an enumerator), interview (structured, semi-structured, unstructured), observation (participant or non-participant), experiment, focus group.</li>
+        <li><b>Secondary</b> (collected by others): reports, published datasets, logs, repositories such as GitHub or Defects4J.</li>
+        <li><b>Pilot study:</b> a small trial run to test the instrument.</li>
+        <li>Avoid leading and double-barrelled questions; mix open and closed questions on purpose.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Measurement scales (NOIR)</h3>
+      <div class="tw"><table>
+        <thead><tr><th>Scale</th><th>Property</th><th>Example</th><th>Statistics</th></tr></thead>
+        <tbody>
+          <tr><td>Nominal</td><td>categories only</td><td>programming language</td><td>mode, chi-square</td></tr>
+          <tr><td>Ordinal</td><td>order, unequal gaps</td><td>bug severity</td><td>median, Spearman</td></tr>
+          <tr><td>Interval</td><td>equal gaps, no true zero</td><td>temperature in °C</td><td>mean, SD, Pearson</td></tr>
+          <tr><td>Ratio</td><td>true zero</td><td>run time, lines of code</td><td>all, incl. ratios</td></tr>
+        </tbody>
+      </table></div>
+      <p>Scaling techniques: Likert (agree–disagree, 5 or 7 points), semantic differential (bipolar adjectives), Thurstone, Guttman (cumulative).</p>
+    </article>
+
+    <article class="note"><h3>Reliability and validity</h3>
+      <ul>
+        <li><b>Reliability = consistency:</b> test–retest, parallel forms, split-half, internal consistency (Cronbach's α; 0.7 or more is usually acceptable), inter-rater.</li>
+        <li><b>Validity = measures what it claims:</b> content, construct (convergent, discriminant), criterion (concurrent, predictive), face.</li>
+        <li>A measure can be reliable without being valid; a valid measure must be reliable.</li>
+        <li><b>Internal validity:</b> is the effect really caused by the treatment? <b>External validity:</b> does it generalise?</li>
+        <li>Software engineering papers discuss threats to internal, external, construct and conclusion validity (Wohlin et al.).</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Descriptive statistics</h3>
+      <div class="formula">mean x̄ = Σx ÷ n · median = middle value · mode = most frequent</div>
+      <div class="formula">s² = Σ(x − x̄)² ÷ (n − 1) · SD = √s² · CV = SD ÷ mean × 100</div>
+      <ul>
+        <li>The mean is pulled by outliers; the median is robust.</li>
+        <li>Right (positive) skew: mean &gt; median. Left skew: mean &lt; median.</li>
+        <li>Normal curve: 68% within ±1 SD, 95% within ±1.96 SD, 99.7% within ±3 SD.</li>
+        <li>Standard error = SD ÷ √n; 95% confidence interval ≈ x̄ ± 1.96 × SE.</li>
+        <li>Pearson r (linear, interval/ratio data) and Spearman ρ (ranks) both run from −1 to +1. Correlation is not causation.</li>
+        <li>Regression y = a + bx; R² is the share of variance in y explained by x.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Hypothesis testing</h3>
+      <p>Steps: state H<sub>0</sub> and H<sub>1</sub> → choose α (usually 0.05) → choose the test → compute the statistic and p-value → reject H<sub>0</sub> if p &lt; α → interpret.</p>
+      <div class="tw"><table>
+        <thead><tr><th></th><th>H<sub>0</sub> true</th><th>H<sub>0</sub> false</th></tr></thead>
+        <tbody>
+          <tr><td><b>Reject H<sub>0</sub></b></td><td>Type I error (α), false positive</td><td>Correct (power = 1 − β)</td></tr>
+          <tr><td><b>Keep H<sub>0</sub></b></td><td>Correct</td><td>Type II error (β), false negative</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li>The p-value is the chance of a result at least this extreme if H<sub>0</sub> were true. It is not the chance that H<sub>0</sub> is true.</li>
+        <li>Bigger samples give more power. Report effect sizes too: Cohen's d, or Vargha–Delaney Â<sub>12</sub> in testing research.</li>
+        <li>Degrees of freedom: one-sample t → n − 1; chi-square independence → (r − 1)(c − 1).</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Which test when</h3>
+      <div class="tw"><table>
+        <thead><tr><th>Situation</th><th>Parametric</th><th>Non-parametric</th></tr></thead>
+        <tbody>
+          <tr><td>One sample vs a known value</td><td>one-sample t (z if σ known, large n)</td><td>Wilcoxon signed-rank</td></tr>
+          <tr><td>Two independent groups</td><td>independent t-test</td><td>Mann–Whitney U</td></tr>
+          <tr><td>Two paired measurements</td><td>paired t-test</td><td>Wilcoxon signed-rank</td></tr>
+          <tr><td>Three or more groups</td><td>one-way ANOVA (F)</td><td>Kruskal–Wallis</td></tr>
+          <tr><td>Two categorical variables</td><td>—</td><td>chi-square test of independence</td></tr>
+          <tr><td>Relationship</td><td>Pearson r</td><td>Spearman ρ</td></tr>
+        </tbody>
+      </table></div>
+      <p>Parametric tests assume roughly normal data. ANOVA's F = between-group variance ÷ within-group variance. For randomised algorithms such as LLMs and EvoSuite, use Mann–Whitney U with Â<sub>12</sub> over repeated runs (Arcuri &amp; Briand, ICSE 2011).</p>
+    </article>
+
+    <article class="note"><h3>Literature review</h3>
+      <ul>
+        <li>Purpose: show what's known, find the gap, justify your question and method.</li>
+        <li>Sources: journals, conference proceedings, theses, books, preprints (arXiv), standards. Primary (original study) vs secondary (review) vs tertiary (index, encyclopedia).</li>
+        <li>Databases: IEEE Xplore, ACM Digital Library, Scopus, Web of Science, Google Scholar, DBLP.</li>
+        <li><b>Systematic literature review:</b> protocol → search strings → inclusion/exclusion → quality assessment → data extraction → synthesis (Kitchenham's guidelines in software engineering; PRISMA flow diagram).</li>
+        <li><b>Snowballing:</b> backward (a paper's references) and forward (papers citing it).</li>
+        <li>Reference managers: Zotero, Mendeley, JabRef (BibTeX).</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Writing and citing</h3>
+      <ul>
+        <li>Paper structure <b>IMRaD</b>: Introduction, Methods, Results and Discussion, plus abstract, conclusion and references.</li>
+        <li>Thesis: introduction, literature review, methodology, results, discussion, conclusion and future work, references, appendices.</li>
+        <li>Abstract (about 150–250 words): problem, method, results, conclusion.</li>
+        <li>Citation styles: IEEE (numbered [1], common in computing), APA (author–date), Harvard, MLA, Chicago.</li>
+        <li>References = works cited; bibliography = works consulted.</li>
+        <li><i>Ibid.</i> = same source as the previous note; <i>op. cit.</i> = the work already cited; <i>et al.</i> = and others.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Research and publication ethics</h3>
+      <ul>
+        <li><b>Misconduct = FFP:</b> fabrication (inventing data), falsification (manipulating data or methods), plagiarism (using others' work without credit).</li>
+        <li>Also misconduct: duplicate publication, salami slicing, gift or ghost authorship, undisclosed conflicts of interest, citation manipulation.</li>
+        <li>Plagiarism forms: verbatim, paraphrase without credit, mosaic (patchwriting), idea plagiarism, self-plagiarism.</li>
+      </ul>
+      <div class="tw"><table>
+        <thead><tr><th>UGC 2018 level</th><th>Similarity</th></tr></thead>
+        <tbody>
+          <tr><td>Level 0</td><td>up to 10%: minor, no penalty</td></tr>
+          <tr><td>Level 1</td><td>above 10% to 40%</td></tr>
+          <tr><td>Level 2</td><td>above 40% to 60%</td></tr>
+          <tr><td>Level 3</td><td>above 60%</td></tr>
+        </tbody>
+      </table></div>
+      <p>Penalties rise with each level. Excluded from the count: properly cited quotes, references, common knowledge, standard formulas and symbols. With AI tools: disclose use, check every fact, and never list an AI as an author.</p>
+      <p class="src">UGC (Promotion of Academic Integrity and Prevention of Plagiarism in Higher Educational Institutions) Regulations, 2018.</p>
+    </article>
+
+    <article class="note"><h3>Journals, indexing and metrics</h3>
+      <ul>
+        <li><b>Peer review:</b> single-blind (reviewers anonymous), double-blind (both anonymous), open.</li>
+        <li><b>Indexing:</b> Scopus (Elsevier), Web of Science (Clarivate: SCIE, SSCI, ESCI), UGC-CARE list (India), DBLP (computing).</li>
+        <li><b>Impact factor</b> (Clarivate): citations this year to items from the previous two years ÷ citable items published in those two years. <b>CiteScore</b> (Scopus) uses a four-year window.</li>
+        <li><b>h-index:</b> h papers with at least h citations each. <b>i10-index</b> (Google Scholar): papers with 10 or more citations.</li>
+        <li><b>Open access:</b> gold (publisher, often with a fee), green (self-archived copy or preprint), diamond (free for authors and readers).</li>
+        <li><b>Predatory signs:</b> guaranteed fast acceptance, fees before review, fake impact factors, spam invitations. Check Scopus, Web of Science or UGC-CARE first.</li>
+        <li>ISSN = journals, ISBN = books, DOI = permanent link to an article.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Intellectual property in India</h3>
+      <ul>
+        <li><b>Patent:</b> new, inventive and industrially applicable; 20 years from filing (Patents Act, 1970). A computer programme “per se” is not patentable (Section 3(k)).</li>
+        <li><b>Copyright:</b> protects expression, including software code; for literary works, the author's life plus 60 years.</li>
+        <li>Also: trademarks, industrial designs, geographical indications (e.g. Kanchipuram silk).</li>
+        <li>Open-source licences: MIT and Apache 2.0 are permissive; GPL is copyleft (derived work must stay GPL).</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>SRM Ph.D rules worth knowing</h3>
+      <ul>
+        <li>Full-time: 3–5 years, counted from provisional registration (2 January or 1 July).</li>
+        <li>Coursework: at least 12 credits and four courses (research methodology, research and publication ethics, a background subject, an advanced subject) within four semesters; 55% needed to continue.</li>
+        <li>Then a comprehensive exam; one retry allowed within six months.</li>
+        <li>Doctoral committee review every six months.</li>
+        <li>Before the synopsis: two first-author papers in peer-reviewed indexed journals and two conference presentations; full-time scholars may submit after 2 years 9 months.</li>
+        <li>The thesis goes to two external examiners (one outside India, one outside the state), then a public viva.</li>
+        <li>Scholars may be given up to 6 hours a week of teaching or research assistance.</li>
+      </ul>
+      <p class="src">SRMIST Ph.D Regulations 2023 and the SRMIST Ph.D admissions page.</p>
+    </article>
+  </div>
+</section>
+
+<section id="cse" class="wrap" aria-labelledby="cse-h">
+  <div class="sec-head">
+    <p class="eyebrow">The other half of the written test</p>
+    <h2 id="cse-h">Computer science notes</h2>
+    <p>Software engineering and testing come first because they match her degrees and her research area. The rest is the core syllabus most CSE Ph.D entrance tests draw from.</p>
+  </div>
+  <div class="toolbar"><label class="sr" for="cse-filter">Filter computer science notes</label><input class="search" id="cse-filter" type="search" placeholder="Filter, e.g. mutation, BCNF, deadlock" autocomplete="off"></div>
+  <p class="empty" id="cse-empty" hidden>No notes match. Try a shorter word.</p>
+  <div class="notes-grid" id="cse-grid">
+
+    <article class="note"><h3>Process models</h3>
+      <ul>
+        <li><b>Waterfall:</b> sequential phases; suits stable requirements; testing comes late.</li>
+        <li><b>V-model:</b> each development phase paired with a test level (requirements ↔ acceptance, design ↔ system/integration, code ↔ unit).</li>
+        <li><b>Incremental / iterative:</b> deliver in pieces.</li>
+        <li><b>Prototyping:</b> a quick model to clarify requirements (throwaway or evolutionary).</li>
+        <li><b>Spiral</b> (Boehm): risk-driven loops of planning, risk analysis, engineering, evaluation.</li>
+        <li><b>Agile Manifesto</b> (2001): 4 values, 12 principles. <b>DevOps:</b> CI/CD pipelines automate build, test and deploy.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Agile and Scrum</h3>
+      <ul>
+        <li><b>Roles:</b> Product Owner, Scrum Master, Developers.</li>
+        <li><b>Events:</b> Sprint (one month or less), Sprint Planning, Daily Scrum (15 min), Sprint Review, Sprint Retrospective.</li>
+        <li><b>Artifacts:</b> Product Backlog, Sprint Backlog, Increment.</li>
+        <li><b>XP practices:</b> pair programming, test-driven development (red → green → refactor), continuous integration, small releases.</li>
+        <li><b>Kanban:</b> visualise work, limit work in progress.</li>
+        <li>User story: “As a &lt;role&gt;, I want &lt;goal&gt; so that &lt;benefit&gt;.” Velocity = story points per sprint.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Requirements and design</h3>
+      <ul>
+        <li>Functional (what the system does) vs non-functional (how well: performance, security, usability).</li>
+        <li>SRS standard: IEEE 830, now ISO/IEC/IEEE 29148. A traceability matrix links requirements to tests.</li>
+        <li><b>Cohesion</b> (high is good), best → worst: functional, sequential, communicational, procedural, temporal, logical, coincidental.</li>
+        <li><b>Coupling</b> (low is good), best → worst: data, stamp, control, external, common, content.</li>
+        <li><b>SOLID:</b> single responsibility, open/closed, Liskov substitution, interface segregation, dependency inversion.</li>
+        <li>UML: use case, class, sequence, activity, state machine, component, deployment diagrams.</li>
+        <li>Design patterns (Gang of Four, 23): creational (Singleton, Factory), structural (Adapter, Decorator), behavioural (Observer, Strategy).</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Estimation, metrics and quality</h3>
+      <div class="formula">Basic COCOMO: effort = a × KLOC<sup>b</sup> person-months; time = 2.5 × effort<sup>d</sup> months</div>
+      <div class="tw"><table>
+        <thead><tr><th>Mode</th><th class="n">a</th><th class="n">b</th><th class="n">d</th></tr></thead>
+        <tbody>
+          <tr><td>Organic</td><td class="n">2.4</td><td class="n">1.05</td><td class="n">0.38</td></tr>
+          <tr><td>Semi-detached</td><td class="n">3.0</td><td class="n">1.12</td><td class="n">0.35</td></tr>
+          <tr><td>Embedded</td><td class="n">3.6</td><td class="n">1.20</td><td class="n">0.32</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li>Function points (Albrecht): inputs, outputs, inquiries, internal files, external interfaces, weighted by complexity.</li>
+        <li>Defect density = defects ÷ KLOC. Defect removal efficiency = E ÷ (E + D), E found before release, D after.</li>
+        <li>MTBF = MTTF + MTTR; availability = MTTF ÷ (MTTF + MTTR).</li>
+        <li>CMMI levels: 1 Initial, 2 Managed, 3 Defined, 4 Quantitatively Managed, 5 Optimizing.</li>
+        <li>Maintenance: corrective, adaptive, perfective, preventive.</li>
+        <li>ISO 9126: functionality, reliability, usability, efficiency, maintainability, portability. ISO/IEC 25010 adds security and compatibility as top-level characteristics.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Testing levels and types</h3>
+      <ul>
+        <li><b>Verification:</b> are we building the product right? <b>Validation:</b> are we building the right product?</li>
+        <li>Error (human mistake) → fault, defect or bug (in code) → failure (wrong behaviour at run time).</li>
+        <li>Levels: unit → integration → system → acceptance.</li>
+        <li>Integration: big-bang, top-down (uses <b>stubs</b>), bottom-up (uses <b>drivers</b>), sandwich.</li>
+        <li>Acceptance: alpha (at the developer's site), beta (real users at their site), UAT.</li>
+        <li>Smoke (does the build basically work?), sanity (narrow check after a fix), regression (did changes break old features?), exploratory.</li>
+        <li>Static testing (reviews, inspections, walkthroughs, static analysis) vs dynamic testing (running code).</li>
+        <li>Seven principles (ISTQB): testing shows presence of defects, exhaustive testing is impossible, test early, defects cluster, pesticide paradox, context dependent, absence-of-errors fallacy.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Black-box techniques</h3>
+      <ul>
+        <li><b>Equivalence partitioning:</b> one test per class of inputs that should behave alike (valid and invalid classes).</li>
+        <li><b>Boundary value analysis:</b> test at and around the edges. For n inputs: basic 4n + 1 tests, robust 6n + 1, worst-case 5<sup>n</sup>.</li>
+        <li>Example: valid age 18–60 → test 17, 18, 19, 59, 60, 61.</li>
+        <li><b>Decision tables:</b> combinations of conditions → actions. Also cause–effect graphs, state transitions, use cases.</li>
+        <li><b>Pairwise (combinatorial):</b> cover every pair of parameter values with few tests.</li>
+        <li>Error guessing and exploratory testing rely on experience.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>White-box testing and coverage</h3>
+      <ul>
+        <li>100% path coverage ⇒ 100% branch (decision) coverage ⇒ 100% statement coverage. Each stronger criterion subsumes the weaker.</li>
+        <li><b>Condition coverage:</b> each Boolean sub-condition is true and false. <b>MC/DC:</b> each condition shown to change the decision on its own (required for the most critical avionics software, DO-178C Level A).</li>
+      </ul>
+      <div class="formula">Cyclomatic complexity V(G) = E − N + 2P = decision points + 1 = regions</div>
+      <ul>
+        <li>V(G) is the number of independent paths, the minimum tests for basis-path coverage. One if-else plus one while loop → V(G) = 3.</li>
+        <li>Data-flow testing covers def–use pairs.</li>
+        <li>Coverage tools: JaCoCo (Java), coverage.py (Python), Istanbul (JavaScript).</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Mutation, oracles, flakiness, prioritisation</h3>
+      <ul>
+        <li><b>Mutation testing:</b> inject small faults (mutants), e.g. change &gt; to &gt;=, + to −, delete a statement. A test that fails on a mutant kills it.</li>
+      </ul>
+      <div class="formula">Mutation score = killed ÷ (total − equivalent) × 100</div>
+      <ul>
+        <li><b>Equivalent mutant:</b> behaves exactly like the original, so no test can kill it. Detecting them is undecidable in general.</li>
+        <li>Justified by the competent-programmer hypothesis and the coupling effect. Tools: PIT (Java), mutmut (Python), Stryker (JavaScript).</li>
+        <li><b>Test oracle:</b> decides whether an output is correct. Kinds: specified (from specs), derived (earlier versions, metamorphic relations), implicit (crashes, exceptions), human.</li>
+        <li><b>Metamorphic testing:</b> check relations between outputs, e.g. sin(x) = sin(π − x).</li>
+        <li><b>Flaky test:</b> passes and fails on the same code. Causes: async waits, concurrency, test order, network, time, randomness.</li>
+      </ul>
+      <div class="formula">APFD = 1 − (TF₁ + … + TFₘ) ÷ (n × m) + 1 ÷ (2n)</div>
+      <p>n = tests, m = faults, TFᵢ = position of the first test that reveals fault i. Higher is better.</p>
+    </article>
+
+    <article class="note"><h3>Automated test generation (her field)</h3>
+      <ul>
+        <li><b>Random / feedback-directed:</b> Randoop (Java).</li>
+        <li><b>Search-based:</b> EvoSuite (Java; a genetic algorithm evolves whole test suites), Pynguin (Python).</li>
+        <li><b>Symbolic / concolic execution:</b> KLEE; solve path constraints to reach branches.</li>
+        <li><b>Fuzzing:</b> AFL, libFuzzer; mutate inputs to find crashes.</li>
+        <li><b>Model-based testing:</b> tests from state machines or specifications.</li>
+        <li><b>LLM-based:</b> prompt a code model with the class under test. Meta's TestGen-LLM keeps only tests that build, pass reliably and add coverage.</li>
+        <li><b>Benchmarks:</b> Defects4J (real Java bugs), BugsInPy (real Python bugs), SWE-bench (real GitHub issues for coding agents).</li>
+        <li>Frameworks: JUnit, pytest; mocking: Mockito, unittest.mock.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Complexity at a glance</h3>
+      <div class="tw"><table>
+        <thead><tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Bubble</td><td class="n">n</td><td class="n">n²</td><td class="n">n²</td><td>stable</td></tr>
+          <tr><td>Insertion</td><td class="n">n</td><td class="n">n²</td><td class="n">n²</td><td>stable; fast on nearly sorted</td></tr>
+          <tr><td>Selection</td><td class="n">n²</td><td class="n">n²</td><td class="n">n²</td><td>not stable</td></tr>
+          <tr><td>Merge</td><td class="n">n log n</td><td class="n">n log n</td><td class="n">n log n</td><td>stable; O(n) extra space</td></tr>
+          <tr><td>Quick</td><td class="n">n log n</td><td class="n">n log n</td><td class="n">n²</td><td>in place; not stable</td></tr>
+          <tr><td>Heap</td><td class="n">n log n</td><td class="n">n log n</td><td class="n">n log n</td><td>in place; not stable</td></tr>
+          <tr><td>Binary search</td><td class="n">1</td><td class="n">log n</td><td class="n">log n</td><td>sorted array</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li>Comparison sorting can't beat Ω(n log n).</li>
+        <li>Hash table: O(1) average, O(n) worst. BST: O(h): O(log n) when balanced (AVL, red-black), O(n) when skewed.</li>
+        <li>Heap: insert and delete O(log n); build-heap O(n).</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Graphs, paradigms and NP</h3>
+      <ul>
+        <li>BFS / DFS: O(V + E). BFS gives shortest paths in unweighted graphs; DFS finds cycles and topological order.</li>
+        <li>Dijkstra: O((V + E) log V) with a binary heap; no negative edges. Bellman–Ford: O(VE); handles negative edges and detects negative cycles. Floyd–Warshall: all pairs, O(V³).</li>
+        <li>Minimum spanning tree: Kruskal O(E log E) with union–find; Prim O(E log V).</li>
+        <li>Greedy: Huffman coding, fractional knapsack, activity selection. Dynamic programming: 0/1 knapsack, LCS, matrix-chain multiplication. Divide and conquer: merge sort, quicksort, binary search.</li>
+        <li>Master theorem, T(n) = aT(n/b) + f(n): merge sort 2T(n/2) + n → Θ(n log n); binary search T(n/2) + 1 → Θ(log n).</li>
+        <li>P ⊆ NP. NP-complete: SAT, 3-SAT, vertex cover, clique, Hamiltonian cycle, subset sum. TSP optimisation is NP-hard.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Databases: keys and normal forms</h3>
+      <ul>
+        <li>Super key ⊇ candidate key (minimal) → primary key (the one chosen); alternate keys; a foreign key references another table's key.</li>
+        <li><b>1NF</b> atomic values. <b>2NF</b> no partial dependency on part of a composite key. <b>3NF</b> no transitive dependency (for X → A, X is a superkey or A is a key attribute). <b>BCNF</b> every determinant is a superkey. <b>4NF</b> no multi-valued dependency. <b>5NF</b> no join dependency.</li>
+        <li>BCNF is stricter than 3NF; a 3NF decomposition can always preserve dependencies, BCNF may not.</li>
+        <li>ER model: entities, attributes (simple, composite, multivalued, derived), relationships (1:1, 1:N, M:N), weak entities.</li>
+        <li>Armstrong's axioms: reflexivity, augmentation, transitivity.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Transactions</h3>
+      <ul><li><b>ACID:</b> atomicity (all or nothing), consistency, isolation, durability.</li></ul>
+      <div class="tw"><table>
+        <thead><tr><th>Isolation level</th><th>Dirty read</th><th>Non-repeatable</th><th>Phantom</th></tr></thead>
+        <tbody>
+          <tr><td>Read uncommitted</td><td>possible</td><td>possible</td><td>possible</td></tr>
+          <tr><td>Read committed</td><td>prevented</td><td>possible</td><td>possible</td></tr>
+          <tr><td>Repeatable read</td><td>prevented</td><td>prevented</td><td>possible</td></tr>
+          <tr><td>Serializable</td><td>prevented</td><td>prevented</td><td>prevented</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li>Two-phase locking (growing, then shrinking) guarantees conflict serializability; strict 2PL also avoids cascading aborts. Deadlock is still possible (wait–die, wound–wait).</li>
+        <li>Recovery: write-ahead logging, checkpoints, undo/redo.</li>
+        <li>Indexes: B+ tree for range queries, hash for equality; clustered vs non-clustered.</li>
+        <li>CAP theorem: during a network partition, choose consistency or availability.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>SQL and relational algebra</h3>
+      <ul>
+        <li>DDL (CREATE, ALTER, DROP), DML (SELECT, INSERT, UPDATE, DELETE), DCL (GRANT, REVOKE), TCL (COMMIT, ROLLBACK, SAVEPOINT).</li>
+        <li>WHERE filters rows before grouping; HAVING filters groups after GROUP BY.</li>
+        <li>Logical order: FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY.</li>
+        <li>Joins: inner, left/right/full outer, self, cross (Cartesian).</li>
+        <li>DELETE removes chosen rows (WHERE allowed); TRUNCATE removes all rows quickly; DROP removes the table itself.</li>
+        <li>Relational algebra: σ select (rows), π project (columns), ⋈ join, ∪ ∩ − set operations, × Cartesian product, ρ rename, ÷ division (“for all”).</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Operating systems: scheduling</h3>
+      <ul>
+        <li>States: new → ready → running → waiting → terminated. A context switch saves and restores the PCB. Threads share their process's memory.</li>
+      </ul>
+      <div class="formula">turnaround = completion − arrival · waiting = turnaround − burst · response = first run − arrival</div>
+      <ul>
+        <li>FCFS (convoy effect); SJF / SRTF (lowest average waiting time, needs burst estimates, can starve); priority (starvation, fixed by aging); round robin (time quantum, good response); multilevel feedback queue.</li>
+        <li>Worked example, bursts 5, 3, 1 all arriving at 0. FCFS waits 0, 5, 8 → average 4.33. SJF runs 1, 3, 5 → waits 0, 1, 4 → average 1.67.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Operating systems: synchronisation and deadlock</h3>
+      <ul>
+        <li>A critical-section solution needs mutual exclusion, progress and bounded waiting (Peterson's solution for two processes).</li>
+        <li>Semaphore: wait (P) decrements, signal (V) increments. A binary semaphore works like a mutex.</li>
+        <li>Classic problems: producer–consumer, readers–writers, dining philosophers.</li>
+        <li>Deadlock needs all four Coffman conditions: mutual exclusion, hold and wait, no preemption, circular wait.</li>
+        <li>Handling: prevention (break a condition), avoidance (Banker's algorithm keeps a safe state), detection and recovery, or ignore it (ostrich).</li>
+        <li>Starvation is not deadlock. Livelock: processes keep changing state without progress.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Operating systems: memory and disks</h3>
+      <ul>
+        <li>Paging: fixed-size pages, no external fragmentation, some internal. Segmentation: variable-size, external fragmentation.</li>
+        <li>The TLB caches page-table entries.</li>
+      </ul>
+      <div class="formula">EAT = h × (t + m) + (1 − h) × (t + 2m)</div>
+      <p>h = TLB hit ratio, t = TLB time, m = memory access time.</p>
+      <ul>
+        <li>Page replacement: FIFO (suffers Belady's anomaly), LRU, Optimal (replace the page used farthest in future; fewest faults but not implementable), LFU.</li>
+        <li>Thrashing: too little memory per process → constant page faults. Fix with the working-set model or fewer processes.</li>
+        <li>Disk scheduling: FCFS, SSTF, SCAN (elevator), C-SCAN, LOOK.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Networks: layers and protocols</h3>
+      <ul>
+        <li>OSI (7): physical, data link, network, transport, session, presentation, application. TCP/IP (4): link, internet, transport, application.</li>
+        <li>Hub (layer 1), switch (layer 2, MAC addresses), router (layer 3, IP addresses).</li>
+        <li><b>TCP:</b> connection-oriented and reliable; 3-way handshake SYN, SYN-ACK, ACK; flow control with a sliding window; congestion control (slow start, congestion avoidance, fast retransmit). <b>UDP:</b> connectionless, no guarantees, low overhead (DNS, streaming, VoIP).</li>
+        <li>ARP maps IP → MAC; DNS maps names → IP; DHCP assigns addresses; NAT shares one public IP.</li>
+        <li>Error detection: parity, checksum, CRC. Hamming code corrects single-bit errors.</li>
+      </ul>
+      <div class="tw"><table>
+        <thead><tr><th>Port</th><th>Protocol</th><th>Port</th><th>Protocol</th></tr></thead>
+        <tbody>
+          <tr><td class="n">20/21</td><td>FTP</td><td class="n">67/68</td><td>DHCP</td></tr>
+          <tr><td class="n">22</td><td>SSH</td><td class="n">80</td><td>HTTP</td></tr>
+          <tr><td class="n">23</td><td>Telnet</td><td class="n">110</td><td>POP3</td></tr>
+          <tr><td class="n">25</td><td>SMTP</td><td class="n">143</td><td>IMAP</td></tr>
+          <tr><td class="n">53</td><td>DNS</td><td class="n">443</td><td>HTTPS</td></tr>
+        </tbody>
+      </table></div>
+    </article>
+
+    <article class="note"><h3>Networks: addressing and routing</h3>
+      <ul>
+        <li>IPv4 addresses are 32 bits; IPv6 addresses are 128 bits.</li>
+      </ul>
+      <div class="formula">usable hosts in a /n subnet = 2<sup>(32 − n)</sup> − 2</div>
+      <ul>
+        <li>Example: /26 → 64 addresses, 62 usable hosts, mask 255.255.255.192.</li>
+        <li>Private ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16.</li>
+        <li>Routing: distance vector (RIP, Bellman–Ford, 15-hop limit, count-to-infinity), link state (OSPF, Dijkstra), path vector (BGP, between autonomous systems).</li>
+        <li>Sliding window with k-bit sequence numbers: Go-Back-N window up to 2<sup>k</sup> − 1; Selective Repeat up to 2<sup>k−1</sup>.</li>
+        <li>HTTP is stateless (cookies add state); HTTPS is HTTP over TLS.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Theory of computation</h3>
+      <div class="tw"><table>
+        <thead><tr><th>Type</th><th>Language</th><th>Machine</th></tr></thead>
+        <tbody>
+          <tr><td class="n">3</td><td>regular</td><td>finite automaton (DFA/NFA)</td></tr>
+          <tr><td class="n">2</td><td>context-free</td><td>pushdown automaton</td></tr>
+          <tr><td class="n">1</td><td>context-sensitive</td><td>linear bounded automaton</td></tr>
+          <tr><td class="n">0</td><td>recursively enumerable</td><td>Turing machine</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li>DFAs and NFAs accept the same languages; an n-state NFA may need up to 2<sup>n</sup> DFA states.</li>
+        <li>aⁿbⁿ is context-free but not regular (pumping lemma); aⁿbⁿcⁿ is not context-free.</li>
+        <li>Regular languages are closed under union, intersection, complement, concatenation and star. Context-free languages are not closed under intersection or complement.</li>
+        <li>The halting problem is undecidable. Rice's theorem: every non-trivial semantic property of programs is undecidable, which is why equivalent mutants can't be detected perfectly.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Compiler design</h3>
+      <ul>
+        <li>Phases: lexical analysis (tokens; regular expressions and finite automata) → syntax analysis (parse tree; context-free grammar) → semantic analysis (types, scopes) → intermediate code (e.g. three-address code) → optimisation → code generation. The symbol table and error handler serve every phase.</li>
+        <li>Top-down parsers: recursive descent, LL(1) (no left recursion, left-factored; built from FIRST and FOLLOW sets).</li>
+        <li>Bottom-up (shift–reduce): LR(0) &lt; SLR(1) &lt; LALR(1) &lt; CLR(1) in power. YACC builds LALR(1) parsers.</li>
+        <li>Optimisations: constant folding, dead-code elimination, common sub-expression elimination, loop-invariant code motion, strength reduction.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Machine learning essentials</h3>
+      <ul>
+        <li>Supervised (labelled: classification, regression), unsupervised (clustering, PCA), semi-supervised, reinforcement (agent, environment, reward, policy).</li>
+        <li>Split into train, validation and test sets; k-fold cross-validation.</li>
+        <li><b>Overfitting:</b> great on training data, poor on new data (high variance). <b>Underfitting:</b> poor on both (high bias). Fixes: more data, L1/L2 regularisation, dropout, early stopping, simpler models.</li>
+      </ul>
+      <div class="formula">precision = TP ÷ (TP + FP) · recall = TP ÷ (TP + FN) · F1 = 2PR ÷ (P + R)</div>
+      <ul>
+        <li>Accuracy = (TP + TN) ÷ all. Prefer precision and recall when classes are imbalanced, e.g. few buggy files.</li>
+        <li>Regression metrics: MAE, MSE, RMSE, R².</li>
+        <li>Algorithms: linear and logistic regression, decision trees (information gain, Gini), random forest (bagging), gradient boosting, SVM (maximum margin, kernels), k-NN, naive Bayes, k-means.</li>
+        <li>Uses in quality assurance: defect prediction, test prioritisation, flaky-test detection.</li>
+      </ul>
+    </article>
+
+    <article class="note"><h3>Deep learning and LLMs</h3>
+      <ul>
+        <li>Neuron: weighted sum + activation (ReLU, sigmoid, tanh, softmax). Training: forward pass, loss, backpropagation, gradient descent.</li>
+        <li>CNNs for images; RNN/LSTM for sequences; Transformers use self-attention (“Attention Is All You Need”, 2017).</li>
+        <li>LLMs are transformers pre-trained to predict the next token on large text and code corpora, then instruction-tuned.</li>
+        <li>Token, context window, temperature (higher = more random), top-p.</li>
+        <li>Prompting: zero-shot, few-shot, chain-of-thought. Adapting: fine-tuning, LoRA.</li>
+        <li><b>Embeddings:</b> vectors that put similar meanings close together (cosine similarity). <b>RAG:</b> retrieve relevant documents or code and add them to the prompt.</li>
+        <li><b>Hallucination:</b> fluent but false output, such as calling methods that don't exist. Reduce it with grounding, execution and verification.</li>
+        <li>Open code models: Code Llama, StarCoder, DeepSeek-Coder, Qwen2.5-Coder. Code metric: pass@k. Agents: models that call tools such as a compiler or test runner in a loop.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section id="talk" class="wrap" aria-labelledby="talk-h">
+  <div class="sec-head">
+    <p class="eyebrow">About 10 minutes · 10 slides</p>
+    <h2 id="talk-h">Interview presentation</h2>
+    <p>The notes beside each slide are what to say. Yellow boxes are hers to fill in. Rehearse full screen with a timer; arrow keys or swipes move between slides.</p>
+  </div>
+  <div><button class="btn primary" type="button" data-present="0">▶ Rehearse full screen</button></div>
+
+  <div class="deck">
+    <article class="slide-item">
+      <div class="slide-col">
+        <div class="slide" role="img" aria-label="Slide 1: title">
+          <div class="sc sc-title">
+            <div class="deco" aria-hidden="true">@Test void generatedTestIsTrustworthy() { <b>assertTrue</b>(test.catchesRealFaults()); }</div>
+            <span class="k">Ph.D research proposal · Computer Science and Engineering</span>
+            <h3>Trustworthy LLM-Generated Unit Tests</h3>
+            <p class="sub">A mutation-guided framework for AI-assisted software quality assurance</p>
+            <div class="meta"><b>Priscilla Eben Nallathai P</b><span>Full-time applicant · SRM IST Ramapuram</span><span>November 2026</span></div>
+            <span class="sno">1 / 10</span>
+          </div>
+        </div>
+        <button class="btn small" type="button" data-present="0">▶ Present from here</button>
+      </div>
+      <div class="say-col"><p class="say-meta mono">Slide 1 · about 20 seconds</p>
+        <div class="say"><p>Good morning. I'm Priscilla Eben Nallathai, and I'm applying for the full-time Ph.D in Computer Science and Engineering.</p><p>My area of interest is AI-assisted software quality assurance. In one line: large language models can now write software tests, and I want to make those tests trustworthy enough to rely on.</p></div>
+      </div>
+    </article>
+
+    <article class="slide-item">
+      <div class="slide-col">
+        <div class="slide" role="img" aria-label="Slide 2: about me">
+          <div class="sc">
+            <span class="k">About me</span>
+            <h3>Trained in software engineering, focused on quality</h3>
+            <ul>
+              <li>Integrated M.Sc. Software Engineering (5 years), SSM College of Engineering, Anna University, 2012</li>
+              <li>M.E. Software Engineering, Easwari Engineering College, Anna University, 2014 · CGPA 8.66</li>
+              <li>M.E. project: <mark class="fill">fill in: title, in one line</mark></li>
+              <li>Since 2014: <mark class="fill">fill in: work, teaching, courses or family responsibilities</mark></li>
+              <li>Why now: AI writes more code and tests every year, and my training lets me ask whether we can trust them.</li>
+            </ul>
+            <span class="sno">2 / 10</span>
+          </div>
+        </div>
+        <button class="btn small" type="button" data-present="1">▶ Present from here</button>
+      </div>
+      <div class="say-col"><p class="say-meta mono">Slide 2 · about 45 seconds</p>
+        <div class="say"><p>Both my degrees are in software engineering, so building and testing software has been at the centre of my training.</p><p>My M.E. project was <mark class="fill">title</mark>, where I <mark class="fill">one line on what you built or found</mark>. Since 2014 I have <mark class="fill">one honest line</mark>.</p><p>What brings me back now is that AI tools write a growing share of code and tests. That raises a quality question my background prepares me for: can we trust what they write?</p></div>
+      </div>
+    </article>
+
+    <article class="slide-item">
+      <div class="slide-col">
+        <div class="slide" role="img" aria-label="Slide 3: motivation">
+          <div class="sc">
+            <span class="k">Motivation</span>
+            <h3>Testing is where software quality is won or lost</h3>
+            <ul>
+              <li>Automated tests catch defects before users do, but writing good tests is slow, skilled, manual work.</li>
+              <li>Researchers have long generated tests automatically. Search-based tools such as EvoSuite (Java) and Pynguin (Python) reach high coverage, but their tests are hard to read and often check little.</li>
+              <li>Large language models now write tests that read like a developer's, and industry has begun deploying them.</li>
+            </ul>
+            <p class="foot">The opportunity is real. So is the question: are the tests any good?</p>
+            <span class="sno">3 / 10</span>
+          </div>
+        </div>
+        <button class="btn small" type="button" data-present="2">▶ Present from here</button>
+      </div>
+      <div class="say-col"><p class="say-meta mono">Slide 3 · about 60 seconds</p>
+        <div class="say"><p>Every serious software team depends on automated tests, and writing them takes time and skill. That's why researchers built tools that generate tests automatically.</p><p>Search-based tools like EvoSuite and Pynguin can reach high coverage, but their tests are hard for people to read and often have weak assertions. Large language models changed this: they write natural, readable tests, and companies like Meta now use them in production.</p><p>So the opportunity is real, and it raises the question my research starts from: are these tests actually good?</p></div>
+      </div>
+    </article>
+
+    <article class="slide-item">
+      <div class="slide-col">
+        <div class="slide" role="img" aria-label="Slide 4: state of the art. Of TestGen-LLM's generated tests, 75 percent built, 57 percent passed reliably, 25 percent increased coverage.">
+          <div class="sc">
+            <span class="k">State of the art</span>
+            <h3>What exists today</h3>
+            <div class="cols">
+              <div class="funnel">
+                <h4>Meta's TestGen-LLM, generated tests</h4>
+                <div class="fr"><span>Built correctly</span><span class="ft"><span class="fb" style="width:75%"></span></span><span class="fv">75%</span></div>
+                <div class="fr"><span>Passed reliably</span><span class="ft"><span class="fb" style="width:57%"></span></span><span class="fv">57%</span></div>
+                <div class="fr"><span>Added coverage</span><span class="ft"><span class="fb" style="width:25%"></span></span><span class="fv">25%</span></div>
+                <p class="fcap">Instagram Reels and Stories evaluation · Alshahwan et al., FSE 2024</p>
+              </div>
+              <ul>
+                <li>TestGen-LLM extends human-written tests; engineers accepted 73% of its recommendations.</li>
+                <li>Meta's ACH (FSE Companion 2025) first creates realistic faults, then asks the LLM for tests that catch them.</li>
+                <li>A survey of 102 studies (Wang et al., IEEE TSE 2024): test generation and program repair lead LLM use in testing.</li>
+              </ul>
+            </div>
+            <span class="sno">4 / 10</span>
+          </div>
+        </div>
+        <button class="btn small" type="button" data-present="3">▶ Present from here</button>
+      </div>
+      <div class="say-col"><p class="say-meta mono">Slide 4 · about 75 seconds</p>
+        <div class="say"><p>The strongest industrial evidence comes from Meta. Their TestGen-LLM tool shows both the promise and the problem. Of the test cases it generated, 75% built correctly, 57% passed reliably, and only 25% actually increased coverage. Everything else was filtered out. Still, engineers accepted 73% of what reached them.</p><p>In 2025, Meta's ACH system reversed the order: it first generates realistic faults, called mutants, then asks the model for tests that catch them.</p><p>On the academic side, Wang and colleagues reviewed 102 studies in IEEE Transactions on Software Engineering, and test generation is among the most common uses.</p></div>
+      </div>
+    </article>
+
+    <article class="slide-item">
+      <div class="slide-col">
+        <div class="slide" role="img" aria-label="Slide 5: the research gap">
+          <div class="sc">
+            <span class="k">Research gap</span>
+            <h3>Generated is not the same as trustworthy</h3>
+            <div class="probs">
+              <div class="prob"><span class="t">Won't build or run</span>Hallucinated imports, methods and dependencies (Ouédraogo et al., EMSE 2026).</div>
+              <div class="prob"><span class="t">Checks the wrong thing</span>Coverage rises while faults slip through: the test oracle problem.</div>
+              <div class="prob"><span class="t">Fails, no diagnosis</span>Industrial filters discard failing tests; they can't tell a real bug from a wrong assertion.</div>
+              <div class="prob"><span class="t">Looks better than it is</span>Benchmarks such as Defects4J may already be in the models' training data.</div>
+            </div>
+            <p class="gapbox">Gap: no open, reproducible method turns LLM test candidates into trustworthy tests, judged by faults detected rather than coverage alone, and validated on code the models have never seen.</p>
+            <span class="sno">5 / 10</span>
+          </div>
+        </div>
+        <button class="btn small" type="button" data-present="4">▶ Present from here</button>
+      </div>
+      <div class="say-col"><p class="say-meta mono">Slide 5 · about 75 seconds</p>
+        <div class="say"><p>Here is the gap. First, many generated tests don't even run. A large study by Ouédraogo and colleagues, covering more than 200,000 generated tests, traced many failures to hallucinated dependencies.</p><p>Second, a test can raise coverage while checking the wrong thing. That's the classic test oracle problem.</p><p>Third, Meta's own paper explains that without an automated oracle, TestGen-LLM can't tell whether a failing test found a bug or contains a wrong assertion, so failing tests are thrown away.</p><p>Fourth, many evaluations use public benchmarks the models may already have seen. So the gap is <i>(read the box)</i>.</p></div>
+      </div>
+    </article>
+
+    <article class="slide-item">
+      <div class="slide-col">
+        <div class="slide" role="img" aria-label="Slide 6: four research questions">
+          <div class="sc">
+            <span class="k">Research questions</span>
+            <h3>Four questions</h3>
+            <div class="rqs">
+              <div class="rq"><b>RQ1</b><span>Why do LLM-generated unit tests fail? A taxonomy across open models and real projects.</span></div>
+              <div class="rq"><b>RQ2</b><span>Can project context and mutation feedback steer an LLM toward tests that catch more faults?</span></div>
+              <div class="rq"><b>RQ3</b><span>When an LLM-written test fails, can we tell a real bug from a wrong assertion automatically?</span></div>
+              <div class="rq"><b>RQ4</b><span>Does it hold on unseen projects and real faults, against EvoSuite, Pynguin and plain prompting, and at what cost?</span></div>
+            </div>
+            <span class="sno">6 / 10</span>
+          </div>
+        </div>
+        <button class="btn small" type="button" data-present="5">▶ Present from here</button>
+      </div>
+      <div class="say-col"><p class="say-meta mono">Slide 6 · about 50 seconds</p>
+        <div class="say"><p>I've framed four research questions. RQ1 is diagnostic: before fixing the problem, understand exactly how generated tests fail.</p><p>RQ2 and RQ3 are the technical contributions: steering generation with context and mutation feedback, and validating oracles so that failing tests are diagnosed rather than discarded.</p><p>RQ4 is the evaluation: real faults, unseen code, strong baselines, and cost.</p></div>
+      </div>
+    </article>
+
+    <article class="slide-item">
+      <div class="slide-col">
+        <div class="slide" role="img" aria-label="Slide 7: proposed approach as a feedback loop">
+          <div class="sc">
+            <span class="k">Proposed approach</span>
+            <h3>A feedback loop around the model</h3>
+            <div class="flow">
+              <div class="fbox"><b>① Retrieve context</b>class, callers, existing tests, docs</div>
+              <span class="farr" aria-hidden="true">→</span>
+              <div class="fbox"><b>② Generate tests</b>open code LLM</div>
+              <span class="farr" aria-hidden="true">→</span>
+              <div class="fbox"><b>③ Build and run ×5</b>compile, pass, flag flaky tests</div>
+              <span class="farr" aria-hidden="true">→</span>
+              <div class="fbox"><b>④ Mutation analysis</b>which injected faults survive?</div>
+            </div>
+            <div class="loop">↺ ⑤ Feedback to ②: compiler errors and surviving mutants go back into the prompt</div>
+            <div class="flow2">
+              <div class="fbox"><b>⑥ Oracle check</b>real bug or wrong assertion?</div>
+              <span class="farr" aria-hidden="true">→</span>
+              <div class="fbox out"><b>Trusted test suite</b>plus a list of suspected bugs</div>
+            </div>
+            <span class="sno">7 / 10</span>
+          </div>
+        </div>
+        <button class="btn small" type="button" data-present="6">▶ Present from here</button>
+      </div>
+      <div class="say-col"><p class="say-meta mono">Slide 7 · about 90 seconds</p>
+        <div class="say"><p>The approach is a loop around the model. Step one retrieves the right context: the class under test, how it's called, existing tests and documentation, so the model doesn't invent APIs. Step two generates candidate tests with an open code model.</p><p>Step three compiles each test and runs it five times; tests that don't build, or that flip between pass and fail, are caught here. Step four runs mutation analysis: small faults are injected, and we see which ones the tests still miss.</p><p>Step five sends compiler errors and surviving mutants back into the prompt, so the next round targets what's missing. Finally, step six checks the oracles: when a test fails, it cross-checks the assertion against documentation, earlier versions of the code and other models, to decide whether we've found a real bug or a wrong assertion.</p><p>The output is a curated test suite plus a list of suspected bugs for developers.</p></div>
+      </div>
+    </article>
+
+    <article class="slide-item">
+      <div class="slide-col">
+        <div class="slide" role="img" aria-label="Slide 8: evaluation plan">
+          <div class="sc">
+            <span class="k">Methodology</span>
+            <h3>How I'll evaluate it</h3>
+            <div class="cols">
+              <div><h4>Data and setup</h4>
+                <ul>
+                  <li>Real faults: Defects4J (Java) and BugsInPy (Python)</li>
+                  <li>Unseen code: projects created after the models' training cut-off</li>
+                  <li>Open code models run locally, e.g. Qwen2.5-Coder, DeepSeek-Coder</li>
+                  <li>Baselines: EvoSuite, Pynguin, plain prompting</li>
+                </ul></div>
+              <div><h4>Measures</h4>
+                <ul>
+                  <li>Build, pass and flaky rates</li>
+                  <li>Line and branch coverage; mutation score</li>
+                  <li>Real faults found; false alarms</li>
+                  <li>Time and cost per useful test</li>
+                  <li>Mann–Whitney U and Vargha–Delaney Â<sub>12</sub> over repeated runs</li>
+                </ul></div>
+            </div>
+            <span class="sno">8 / 10</span>
+          </div>
+        </div>
+        <button class="btn small" type="button" data-present="7">▶ Present from here</button>
+      </div>
+      <div class="say-col"><p class="say-meta mono">Slide 8 · about 75 seconds</p>
+        <div class="say"><p>I'll evaluate on two benchmarks of real bugs, Defects4J for Java and BugsInPy for Python, and on fresh projects created after the models' training cut-off, which removes the leakage problem.</p><p>I'll use open models that run locally. That keeps the work reproducible and affordable, and the code never leaves the machine. Baselines are EvoSuite, Pynguin and plain prompting.</p><p>The headline measure isn't coverage but fault detection: mutation score and real bugs found, alongside false alarms and cost. Because LLMs and search-based tools are both randomised, I'll repeat every run and use non-parametric statistics with effect sizes, following Arcuri and Briand's guidelines.</p></div>
+      </div>
+    </article>
+
+    <article class="slide-item">
+      <div class="slide-col">
+        <div class="slide" role="img" aria-label="Slide 9: three-year work plan and outcomes">
+          <div class="sc">
+            <span class="k">Plan and outcomes</span>
+            <h3>Three years, three milestones</h3>
+            <div class="years">
+              <div class="yr"><b>Year 1</b><ul><li>Coursework: research methodology, publication ethics, two subject courses</li><li>Systematic literature review</li><li>Failure study (RQ1) → paper 1</li></ul></div>
+              <div class="yr"><b>Year 2</b><ul><li>Build the framework (RQ2, RQ3)</li><li>Experiments on Java and Python</li><li>Journal paper 2 + a conference paper</li></ul></div>
+              <div class="yr"><b>Year 3</b><ul><li>Large-scale evaluation (RQ4)</li><li>Release the tool and dataset</li><li>Synopsis and thesis</li></ul></div>
+            </div>
+            <p class="outc"><b>Outcomes:</b> an open-source tool, a leakage-free evaluation dataset, and at least two first-author journal papers, as SRM requires before the synopsis.</p>
+            <p class="venues">Target venues: Journal of Systems and Software · Information and Software Technology · Empirical Software Engineering · Software Testing, Verification and Reliability · ICST · ISSTA · ASE</p>
+            <span class="sno">9 / 10</span>
+          </div>
+        </div>
+        <button class="btn small" type="button" data-present="8">▶ Present from here</button>
+      </div>
+      <div class="say-col"><p class="say-meta mono">Slide 9 · about 60 seconds</p>
+        <div class="say"><p>Year one combines coursework with a systematic literature review and the failure study, which becomes the first paper.</p><p>Year two builds and tests the framework and produces the main journal paper plus a conference paper. Year three is the large-scale evaluation, an open-source release of the tool and dataset, and the thesis.</p><p>I know SRM requires two first-author papers in indexed journals before the synopsis, so the plan builds toward publications from the first year.</p></div>
+      </div>
+    </article>
+
+    <article class="slide-item">
+      <div class="slide-col">
+        <div class="slide" role="img" aria-label="Slide 10: thank you and key references">
+          <div class="sc sc-end">
+            <span class="k">Thank you</span>
+            <h3>Questions welcome</h3>
+            <ul class="refs-s">
+              <li>Wang et al. Software testing with large language models: survey, landscape, and vision. IEEE TSE, 2024.</li>
+              <li>Alshahwan et al. Automated unit test improvement using large language models at Meta. FSE, 2024.</li>
+              <li>Foster et al. Mutation-guided LLM-based test generation at Meta. FSE Companion, 2025.</li>
+              <li>Ouédraogo et al. Prompt engineering in LLMs for automated unit test generation: a large-scale study. Empirical Software Engineering, 2026.</li>
+              <li>Barr et al. The oracle problem in software testing: a survey. IEEE TSE, 2015.</li>
+            </ul>
+            <span class="sno">10 / 10</span>
+          </div>
+        </div>
+        <button class="btn small" type="button" data-present="9">▶ Present from here</button>
+      </div>
+      <div class="say-col"><p class="say-meta mono">Slide 10 · as long as the panel wants</p>
+        <div class="say"><p>Thank you. I'd be glad to take your questions.</p><p class="tip">Listen to the whole question, pause, answer in two to four sentences with one example, then stop. If you don't know: “I haven't studied that yet; this is how I would find out.”</p></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="proposal" class="wrap" aria-labelledby="proposal-h">
+  <div class="sec-head">
+    <p class="eyebrow">Print two copies for the panel</p>
+    <h2 id="proposal-h">Research proposal, one page</h2>
+  </div>
+  <article class="doc">
+    <div><h4>Title</h4><p class="t">Trustworthy LLM-Generated Unit Tests: A Mutation-Guided Framework for AI-Assisted Software Quality Assurance</p></div>
+    <div><h4>30-second pitch</h4><p class="pitch">I want to make AI-written software tests trustworthy. Large language models can now write unit tests quickly, but many don't compile, some check the wrong thing, and industrial tools throw failing tests away because they can't tell a real bug from a wrong assertion. My research will use mutation analysis and project context to guide open code models toward tests that actually catch faults, add a check that flags wrong assertions, and evaluate everything on real bugs and on code the models have never seen.</p></div>
+    <div><h4>Abstract</h4><p>Large language models (LLMs) can now generate unit tests that read like developer-written code, and industry has begun deploying them. Yet many generated tests fail to compile or run, some pass while checking the wrong behaviour, and industrial pipelines discard failing tests because they cannot tell a real fault from an incorrect assertion. Evaluations are also threatened by benchmark data the models may have seen during training. This research will (1) characterise why LLM-generated tests fail across open models and real projects; (2) design a framework that combines retrieved project context with mutation-analysis feedback to steer generation toward tests that detect faults; (3) add an oracle-validation step that separates genuine fault-revealing failures from wrong assertions; and (4) evaluate the framework on real-fault benchmarks (Defects4J, BugsInPy) and on projects created after the models' training cut-off, against search-based (EvoSuite, Pynguin) and prompting baselines. Expected outcomes are an open-source tool, a leakage-free evaluation dataset and peer-reviewed publications.</p></div>
+    <div><h4>Objectives</h4><ol>
+      <li>Build a taxonomy of how LLM-generated unit tests fail (RQ1).</li>
+      <li>Design context retrieval plus mutation feedback that raises fault detection (RQ2).</li>
+      <li>Automatically separate real-bug failures from wrong assertions (RQ3).</li>
+      <li>Evaluate on real faults and unseen code against strong baselines, including cost (RQ4).</li>
+    </ol></div>
+    <div><h4>Methodology</h4><ul>
+      <li>Subjects: Defects4J (Java), BugsInPy (Python), plus projects created after each model's training cut-off.</li>
+      <li>Models: open code LLMs run locally for reproducibility and privacy.</li>
+      <li>Tools: JaCoCo and coverage.py (coverage), PIT and mutmut (mutation analysis).</li>
+      <li>Measures: build, pass and flaky rates; line and branch coverage; mutation score; real faults found; false alarms; time and cost.</li>
+      <li>Statistics: repeated runs, Mann–Whitney U and Vargha–Delaney Â<sub>12</sub>.</li>
+    </ul></div>
+    <div><h4>Expected contributions</h4><ul>
+      <li>An empirical failure taxonomy for LLM-generated tests.</li>
+      <li>An open-source, mutation-guided test generation framework with oracle validation.</li>
+      <li>A leakage-free evaluation dataset of recent projects and real faults.</li>
+      <li>At least two first-author journal papers and conference presentations.</li>
+    </ul></div>
+    <div><h4>Work plan</h4><p>Year 1: coursework, systematic review, failure study. Year 2: framework and experiments. Year 3: large-scale evaluation, tool release, thesis.</p></div>
+    <div><h4>Keywords</h4><p>software testing · unit test generation · large language models · mutation testing · test oracle · software quality assurance</p></div>
+  </article>
+</section>
+
+<section id="questions" class="wrap" aria-labelledby="questions-h">
+  <div class="sec-head">
+    <p class="eyebrow">Practise these aloud</p>
+    <h2 id="questions-h">Likely interview questions</h2>
+    <p>Answer pointers, not scripts. Say each answer in your own words in two to four sentences.</p>
+  </div>
+  <div class="tips"><b>How to answer</b><p>Listen to the whole question. Pause. Answer in two to four sentences, give one example, then stop. If you don't know, say so and explain how you would find out; panels respect that more than a guess.</p></div>
+  <div class="qa-groups">
+    <div class="qa-group"><h3>About her</h3>
+      <div class="qa"><span class="n">1</span><span class="q">Tell us about yourself.</span><p class="a">One minute: two software-engineering degrees (integrated M.Sc. 2012, M.E. 2014 with CGPA 8.66), what you've done since, why AI-assisted testing, why full-time now. End on your research question.</p></div>
+      <div class="qa"><span class="n">2</span><span class="q">Your M.E. was in 2014. What have you done since, and why a Ph.D now?</span><p class="a">Answer briefly and honestly, then move forward: what kept you connected to the field, and why now (the fellowship allows full-time focus; AI has made testing research urgent). <mark class="fill">fill in your facts</mark></p></div>
+      <div class="qa"><span class="n">3</span><span class="q">Why SRM, and why full-time?</span><p class="a">Research culture, labs and an A++ NAAC-accredited university in your own city. Full-time with fellowship lets you focus on research and on publishing the two first-author journal papers the regulations require.</p></div>
+      <div class="qa"><span class="n">4</span><span class="q">Tell us about your M.E. project.</span><p class="a">Problem, what you built, what you found, what you'd do differently now. Connect it to quality or testing if you can. <mark class="fill">fill in</mark></p></div>
+      <div class="qa"><span class="n">5</span><span class="q">Which faculty would you like to work with?</span><p class="a">Name one or two Ramapuram CSE faculty whose work touches testing, software engineering or machine learning (from the Day 10 homework), and say you're open to the committee's allocation.</p></div>
+    </div>
+    <div class="qa-group"><h3>Her topic</h3>
+      <div class="qa"><span class="n">6</span><span class="q">Explain your research to a non-specialist.</span><p class="a">Use the 30-second pitch, then one example: if an AI-written test asserts that a buggy function's current wrong output is correct, the test passes but protects nothing. My work catches that.</p></div>
+      <div class="qa"><span class="n">7</span><span class="q">What exactly is the research gap?</span><p class="a">Read the gap box from slide 5, then the evidence: many generated tests don't run; Meta's pipeline discards failing tests because it lacks an automated oracle; benchmarks may be in training data.</p></div>
+      <div class="qa"><span class="n">8</span><span class="q">What is the test oracle problem?</span><p class="a">Deciding whether a program's output for a test input is correct. Oracles can be specified, derived (earlier versions, metamorphic relations), implicit (crashes, exceptions) or human. LLMs can guess oracles, but they may copy the current, possibly buggy, behaviour.</p></div>
+      <div class="qa"><span class="n">9</span><span class="q">What is mutation testing, and why not just use coverage?</span><p class="a">Inject small deliberate faults such as changing &gt; to &gt;=; good tests fail on them, which kills the mutant. Mutation score = killed ÷ (total − equivalent). Coverage only shows code ran; mutation score shows whether the tests would notice a fault.</p></div>
+      <div class="qa"><span class="n">10</span><span class="q">What is an equivalent mutant?</span><p class="a">A mutant that behaves exactly like the original, so no test can kill it. Detecting them is undecidable in general (Rice's theorem). Meta's ACH used an LLM agent for it: precision 0.79 and recall 0.47, rising to 0.95 and 0.96 with simple preprocessing.</p></div>
+      <div class="qa"><span class="n">11</span><span class="q">How is your work different from Meta's TestGen-LLM and ACH?</span><p class="a">Theirs are in-house tools on Meta's Kotlin code with Meta's own models. Yours is open and reproducible, uses open models, targets fault detection and oracle validity, diagnoses failing tests instead of discarding them, and is evaluated on unseen projects.</p></div>
+      <div class="qa"><span class="n">12</span><span class="q">Why open models and not ChatGPT?</span><p class="a">Reproducibility (fixed model versions), cost, privacy (code stays on the machine) and the option to fine-tune. One commercial model can still be included as a comparison.</p></div>
+      <div class="qa"><span class="n">13</span><span class="q">How will you handle hallucination?</span><p class="a">Ground the prompt with real project context, execute everything (compile, run repeatedly), feed errors back, and never trust a test that hasn't been run and mutation-checked.</p></div>
+      <div class="qa"><span class="n">14</span><span class="q">How will you avoid data leakage?</span><p class="a">Report results separately on projects created after each model's training cut-off, collected from repository history with their real fixes.</p></div>
+      <div class="qa"><span class="n">15</span><span class="q">What if your approach doesn't beat EvoSuite?</span><p class="a">The two are complementary: coverage versus readable, meaningful assertions, so a hybrid is a valid outcome. The failure taxonomy and the leakage-free dataset are contributions on their own, and rigorous negative results are publishable.</p></div>
+    </div>
+    <div class="qa-group"><h3>Research methods</h3>
+      <div class="qa"><span class="n">16</span><span class="q">State a hypothesis for your study.</span><p class="a">H<sub>1</sub>: mutation-guided feedback raises the mutation score of LLM-generated tests compared with zero-shot prompting. H<sub>0</sub>: there is no difference.</p></div>
+      <div class="qa"><span class="n">17</span><span class="q">Which statistical tests will you use, and why?</span><p class="a">Results come from randomised runs and are rarely normally distributed, so Mann–Whitney U for significance and Vargha–Delaney Â<sub>12</sub> for effect size over repeated runs, as Arcuri and Briand recommend.</p></div>
+      <div class="qa"><span class="n">18</span><span class="q">What are the threats to validity?</span><p class="a">Internal: randomness and tool bugs (repeat runs, test your scripts). External: only Java and Python (several projects, two languages). Construct: mutation score as a proxy (also count real faults). Conclusion: use proper tests and effect sizes.</p></div>
+      <div class="qa"><span class="n">19</span><span class="q">What is the difference between research methods and methodology?</span><p class="a">Methods are the techniques you use (experiments, surveys, mutation analysis). Methodology is the reasoning for choosing them and how they fit together.</p></div>
+      <div class="qa"><span class="n">20</span><span class="q">Where will you publish, and how will you avoid predatory journals?</span><p class="a">Journal of Systems and Software, Information and Software Technology, Empirical Software Engineering, Software Testing, Verification and Reliability; ICST, ISSTA, ASE. Check Scopus, Web of Science or the UGC-CARE list, and avoid journals that promise fast acceptance for a fee.</p></div>
+      <div class="qa"><span class="n">21</span><span class="q">What similarity level is acceptable in a thesis?</span><p class="a">Under the UGC 2018 regulations, up to 10% is Level 0 with no penalty; above 10–40% is Level 1, 40–60% Level 2, above 60% Level 3. Cited quotes, references and common knowledge are excluded.</p></div>
+      <div class="qa"><span class="n">22</span><span class="q">How will you manage three years?</span><p class="a">Walk through slide 9, and mention the doctoral-committee review every six months that keeps the work on schedule.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="day" class="wrap" aria-labelledby="day-h">
+  <div class="sec-head">
+    <p class="eyebrow">Pack the evening before</p>
+    <h2 id="day-h">Exam-day checklist</h2>
+    <p>Tick items as you pack; ticks are saved in this browser only.</p>
+  </div>
+  <div class="progress"><div class="pbar"><span id="pack-bar"></span></div><span class="mono" id="pack-count">0 of 15 ready</span></div>
+  <div class="grid2">
+    <div class="panel"><h3>Documents</h3>
+      <div class="checklist">
+        <label class="check"><input type="checkbox" id="pack-1" data-key="pack-1" data-group="pack"><span>Hall ticket or call letter. Check the date (14 or 15 Nov), reporting time and room.</span></label>
+        <label class="check"><input type="checkbox" id="pack-2" data-key="pack-2" data-group="pack"><span>Printout of the application form and the acknowledgement receipt</span></label>
+        <label class="check"><input type="checkbox" id="pack-3" data-key="pack-3" data-group="pack"><span>Originals: 10th and 12th mark sheets, integrated M.Sc. degree certificate and consolidated mark sheet, M.E. degree certificate and consolidated mark sheet</span></label>
+        <label class="check"><input type="checkbox" id="pack-4" data-key="pack-4" data-group="pack"><span>Two sets of self-attested photocopies of all of the above</span></label>
+        <label class="check"><input type="checkbox" id="pack-5" data-key="pack-5" data-group="pack"><span>Photo ID (Aadhaar or PAN), original and a copy</span></label>
+        <label class="check"><input type="checkbox" id="pack-6" data-key="pack-6" data-group="pack"><span>Four recent passport-size photos</span></label>
+      </div>
+    </div>
+    <div class="panel"><h3>Presentation</h3>
+      <div class="checklist">
+        <label class="check"><input type="checkbox" id="pack-7" data-key="pack-7" data-group="pack"><span>Slides as PDF and PowerPoint on a pen drive</span></label>
+        <label class="check"><input type="checkbox" id="pack-8" data-key="pack-8" data-group="pack"><span>The same files emailed to yourself and saved on your phone</span></label>
+        <label class="check"><input type="checkbox" id="pack-9" data-key="pack-9" data-group="pack"><span>Two printed copies of the one-page proposal for the panel</span></label>
+      </div>
+      <h3>For the test</h3>
+      <div class="checklist">
+        <label class="check"><input type="checkbox" id="pack-10" data-key="pack-10" data-group="pack"><span>Two blue or black pens, a pencil and an eraser</span></label>
+        <label class="check"><input type="checkbox" id="pack-11" data-key="pack-11" data-group="pack"><span>A simple wristwatch <small>(no smartwatch)</small></span></label>
+        <label class="check"><input type="checkbox" id="pack-12" data-key="pack-12" data-group="pack"><span>Calculator, only if the hall ticket allows one</span></label>
+        <label class="check"><input type="checkbox" id="pack-13" data-key="pack-13" data-group="pack"><span>Water and a snack; the test and interview can run long</span></label>
+      </div>
+    </div>
+    <div class="panel"><h3>Travel</h3>
+      <div class="checklist">
+        <label class="check"><input type="checkbox" id="pack-14" data-key="pack-14" data-group="pack"><span>Plan to reach SRM IST, Bharathi Salai, Ramapuram 45–60 minutes before reporting time</span></label>
+        <label class="check"><input type="checkbox" id="pack-15" data-key="pack-15" data-group="pack"><span>Phone switched off during the test</span></label>
+      </div>
+    </div>
+    <div class="panel"><h3>After the result</h3>
+      <ol class="steps">
+        <li><span class="d">20 Nov</span><span>Check the list of selected candidates on the portal and email.</span></li>
+        <li><span class="d">By 15 Dec</span><span>Pay the fee, likely ₹40,000 (₹10,000 registration + ₹30,000 first semester). Confirm the amount on the portal.</span></li>
+        <li><span class="d">21 Dec</span><span>Report to the Directorate of Research with original documents.</span></li>
+        <li><span class="d">Jan 2027</span><span>Coursework begins: research methodology, research and publication ethics and two subject courses.</span></li>
+        <li><span class="d">Ask</span><span>Whether clearing GATE or UGC-NET during the Ph.D raises the stipend to ₹37,000.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="reading" class="wrap" aria-labelledby="reading-h">
+  <div class="sec-head">
+    <p class="eyebrow">Read the abstracts first</p>
+    <h2 id="reading-h">Reading list</h2>
+    <p>Abstracts and introductions are enough before the interview. Full papers can wait until the coursework.</p>
+  </div>
+  <p class="ref-h">Her topic</p>
+  <ul class="refs">
+    <li><a href="https://arxiv.org/abs/2307.07221" target="_blank" rel="noopener">Wang, Huang, Chen, Liu, Wang &amp; Wang. Software Testing with Large Language Models: Survey, Landscape, and Vision. IEEE TSE, 2024.</a><span class="why">Reviews 102 studies; the best single overview.</span></li>
+    <li><a href="https://arxiv.org/abs/2402.09171" target="_blank" rel="noopener">Alshahwan et al. Automated Unit Test Improvement using Large Language Models at Meta. FSE 2024.</a><span class="why">TestGen-LLM: the 75% / 57% / 25% funnel and 73% acceptance used on slide 4.</span></li>
+    <li><a href="https://arxiv.org/abs/2501.12862" target="_blank" rel="noopener">Foster et al. Mutation-Guided LLM-based Test Generation at Meta. FSE Companion 2025.</a><span class="why">ACH: generate faults first, then tests that catch them. Closest industrial idea to the proposal.</span></li>
+    <li><a href="https://arxiv.org/abs/2407.00225" target="_blank" rel="noopener">Ouédraogo et al. Prompt Engineering in LLMs for Automated Unit Test Generation: A Large-Scale Study. Empirical Software Engineering, 2026.</a><span class="why">216,300 generated tests compared with EvoSuite; hallucinated dependencies behind many failures.</span></li>
+    <li><a href="https://homes.cs.washington.edu/~mernst/pubs/neurosymbolic-oracles-ase2025.pdf" target="_blank" rel="noopener">Molinelli et al. Do LLMs Generate Useful Test Oracles? An Empirical Study with an Unbiased Dataset. ASE 2025.</a><span class="why">Test oracles from LLMs, evaluated on code newer than the models' training data.</span></li>
+    <li><a href="https://arxiv.org/abs/2509.25043" target="_blank" rel="noopener">Augusto, Bertolino, De Angelis, Lonetti &amp; Morán. Large Language Models for Software Testing: A Research Roadmap. 2025.</a><span class="why">Recent map of open problems; useful for “future work” answers.</span></li>
+    <li><a href="https://arxiv.org/abs/2308.10620" target="_blank" rel="noopener">Hou et al. Large Language Models for Software Engineering: A Systematic Literature Review. ACM TOSEM 33(8), 2024.</a><span class="why">395 papers across software engineering; a model for her own systematic review.</span></li>
+  </ul>
+  <p class="ref-h">Classics to know by name</p>
+  <ul class="refs">
+    <li><a href="https://scholar.google.com/scholar?q=%22The+Oracle+Problem+in+Software+Testing%3A+A+Survey%22" target="_blank" rel="noopener">Barr, Harman, McMinn, Shahbaz &amp; Yoo. The Oracle Problem in Software Testing: A Survey. IEEE TSE, 2015.</a></li>
+    <li><a href="https://scholar.google.com/scholar?q=%22An+Analysis+and+Survey+of+the+Development+of+Mutation+Testing%22" target="_blank" rel="noopener">Jia &amp; Harman. An Analysis and Survey of the Development of Mutation Testing. IEEE TSE, 2011.</a></li>
+    <li><a href="https://scholar.google.com/scholar?q=%22EvoSuite%3A+Automatic+Test+Suite+Generation+for+Object-Oriented+Software%22" target="_blank" rel="noopener">Fraser &amp; Arcuri. EvoSuite: Automatic Test Suite Generation for Object-Oriented Software. ESEC/FSE 2011.</a></li>
+    <li><a href="https://scholar.google.com/scholar?q=%22Defects4J%22+database+of+existing+faults" target="_blank" rel="noopener">Just, Jalali &amp; Ernst. Defects4J: A Database of Existing Faults to Enable Controlled Testing Studies for Java Programs. ISSTA 2014.</a></li>
+    <li><a href="https://scholar.google.com/scholar?q=%22A+practical+guide+for+using+statistical+tests+to+assess+randomized+algorithms+in+software+engineering%22" target="_blank" rel="noopener">Arcuri &amp; Briand. A Practical Guide for Using Statistical Tests to Assess Randomized Algorithms in Software Engineering. ICSE 2011.</a></li>
+  </ul>
+  <p class="ref-h">Books and practice</p>
+  <ul class="refs">
+    <li>C. R. Kothari &amp; Gaurav Garg. <i>Research Methodology: Methods and Techniques</i>. New Age International.<span class="why">The standard Indian text for the research-methods half.</span></li>
+    <li>Wohlin et al. <i>Experimentation in Software Engineering</i>. Springer.<span class="why">Experiments, statistics and threats to validity in her field.</span></li>
+    <li>UGC-NET Paper 1 (research aptitude) and GATE CS previous-year papers.<span class="why">The best free sources of MCQ practice for each half of the test.</span></li>
+  </ul>
+  <p class="ref-h">SRM sources used on this page</p>
+  <ul class="refs">
+    <li><a href="https://registration.srmrmp.edu.in/ph-d-application-form-2027" target="_blank" rel="noopener">SRM IST Ramapuram: Ph.D application page, January 2027 intake</a><span class="why">Dates, programmes, fees, stipend and refund rules.</span></li>
+    <li><a href="https://www.srmist.edu.in/admission-india/phd/" target="_blank" rel="noopener">SRMIST: Ph.D admissions</a><span class="why">University-wide dates, duration and categories.</span></li>
+    <li><a href="https://webstor.srmist.edu.in/web_assets/downloads/2023/phd-regulations-reg-2023.pdf" target="_blank" rel="noopener">SRMIST Ph.D Regulations 2023 (PDF)</a><span class="why">Selection weights, coursework, publication and thesis rules.</span></li>
+  </ul>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <p>Prepared 27 October 2026. Dates and fees come from SRM's own pages; confirm anything time-critical on the portal or with the helpdesk.</p>
+</div></footer>
+
+<div class="presenter" id="presenter" hidden role="dialog" aria-modal="true" aria-label="Presentation rehearsal">
+  <div class="stage-wrap" id="stage-wrap"><div class="stage" id="stage"></div></div>
+  <div class="p-notes" id="p-notes" aria-live="polite"></div>
+  <div class="controls">
+    <div class="ctrl">
+      <button class="btn" id="p-prev" type="button">← Previous</button>
+      <span class="mono" id="p-count">1 / 10</span>
+      <button class="btn primary" id="p-next" type="button">Next →</button>
+    </div>
+    <div class="ctrl">
+      <span class="mono timer" id="p-timer" title="Time since you started">00:00</span>
+      <button class="btn" id="p-reset" type="button">Restart timer</button>
+      <button class="btn" id="p-notes-toggle" type="button" aria-pressed="true">Hide notes</button>
+      <button class="btn" id="p-fs" type="button">Full screen</button>
+      <button class="btn" id="p-close" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var DAY = 86400000;
+  function midnight(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+  function parseDate(s) { var p = s.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  var today = midnight(new Date());
+  var exam = new Date(2026, 10, 15);
+  var left = Math.round((exam.getTime() - today.getTime()) / DAY);
+
+  var num = document.getElementById("cd-num"), unit = document.getElementById("cd-unit");
+  if (num && unit) {
+    if (left > 1) { num.textContent = String(left); unit.textContent = "days to go"; }
+    else if (left === 1) { num.textContent = "1"; unit.textContent = "day to go"; }
+    else if (left === 0) { num.textContent = "Today"; unit.textContent = "All the best"; }
+    else { num.textContent = "Done"; unit.textContent = "Results due 20 Nov"; }
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll(".day[data-date]"), function (row) {
+    if (parseDate(row.getAttribute("data-date")).getTime() === today.getTime()) {
+      row.classList.add("is-today");
+      var when = row.querySelector(".when");
+      if (when) { var chip = document.createElement("span"); chip.className = "today-chip"; chip.textContent = "Today"; when.appendChild(chip); }
+    }
+  });
+
+  var KEY = "priscilla-phd-prep-v1", state = {};
+  try { state = JSON.parse(window.localStorage.getItem(KEY) || "{}") || {}; } catch (e) { state = {}; }
+  function save() { try { window.localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  var boxes = Array.prototype.slice.call(document.querySelectorAll("input[type=checkbox][data-key]"));
+  function refresh() {
+    ["plan", "pack"].forEach(function (g) {
+      var all = boxes.filter(function (b) { return b.getAttribute("data-group") === g; });
+      var done = all.filter(function (b) { return b.checked; }).length;
+      var bar = document.getElementById(g + "-bar"), txt = document.getElementById(g + "-count");
+      if (bar) bar.style.width = (all.length ? (done / all.length) * 100 : 0) + "%";
+      if (txt) txt.textContent = done + " of " + all.length + (g === "plan" ? " days done" : " ready");
+      all.forEach(function (b) { var row = b.closest(".day, .check"); if (row) row.classList.toggle("done", b.checked); });
+    });
+  }
+  boxes.forEach(function (cb) {
+    if (state[cb.getAttribute("data-key")]) cb.checked = true;
+    cb.addEventListener("change", function () { state[cb.getAttribute("data-key")] = cb.checked; save(); refresh(); });
+  });
+  refresh();
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-copy]"), function (btn) {
+    btn.addEventListener("click", function () {
+      var text = btn.getAttribute("data-copy"), label = btn.textContent;
+      function restore() { setTimeout(function () { btn.textContent = label; }, 1600); }
+      function ok() { btn.textContent = "Copied"; restore(); }
+      function fallback() {
+        var t = document.getElementById(btn.getAttribute("data-target"));
+        if (t) { var r = document.createRange(); r.selectNodeContents(t); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+        btn.textContent = "Selected"; restore();
+      }
+      try { navigator.clipboard.writeText(text).then(ok, fallback); } catch (e) { fallback(); }
+    });
+  });
+
+  function filter(inputId, gridId, emptyId) {
+    var input = document.getElementById(inputId), grid = document.getElementById(gridId), empty = document.getElementById(emptyId);
+    if (!input || !grid) return;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll(".note"));
+    input.addEventListener("input", function () {
+      var q = input.value.trim().toLowerCase(), shown = 0;
+      cards.forEach(function (c) { var hit = !q || c.textContent.toLowerCase().indexOf(q) !== -1; c.hidden = !hit; if (hit) shown++; });
+      if (empty) empty.hidden = shown !== 0;
+    });
+  }
+  filter("rm-filter", "rm-grid", "rm-empty");
+  filter("cse-filter", "cse-grid", "cse-empty");
+
+  var links = Array.prototype.slice.call(document.querySelectorAll(".nav a"));
+  if ("IntersectionObserver" in window && links.length) {
+    var byId = {};
+    links.forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var a = byId[en.target.id];
+        if (!a) return;
+        links.forEach(function (l) { l.classList.remove("active"); l.removeAttribute("aria-current"); });
+        a.classList.add("active"); a.setAttribute("aria-current", "true");
+        var nav = a.parentElement;
+        if (nav && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = Math.max(0, a.offsetLeft - 16);
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    Object.keys(byId).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
+  }
+
+  var items = Array.prototype.slice.call(document.querySelectorAll(".slide-item"));
+  var P = document.getElementById("presenter");
+  if (!P || !items.length) return;
+  var wrap = document.getElementById("stage-wrap"), stage = document.getElementById("stage"),
+      notes = document.getElementById("p-notes"), count = document.getElementById("p-count"),
+      timer = document.getElementById("p-timer"), prev = document.getElementById("p-prev"),
+      next = document.getElementById("p-next"), toggle = document.getElementById("p-notes-toggle"),
+      fs = document.getElementById("p-fs"), closeBtn = document.getElementById("p-close"),
+      reset = document.getElementById("p-reset");
+  var idx = 0, t0 = 0, tick = null, back = null, sx = null;
+
+  function fit() {
+    if (P.hidden) return;
+    var r = wrap.getBoundingClientRect();
+    var w = Math.max(0, Math.min(r.width, r.height * 16 / 9));
+    stage.style.width = Math.floor(w) + "px";
+  }
+  function show(i) {
+    idx = Math.max(0, Math.min(items.length - 1, i));
+    var slide = items[idx].querySelector(".slide").cloneNode(true);
+    stage.replaceChildren(slide);
+    notes.replaceChildren();
+    var say = items[idx].querySelector(".say");
+    if (say) { var c = say.cloneNode(true); while (c.firstChild) notes.appendChild(c.firstChild); }
+    count.textContent = (idx + 1) + " / " + items.length;
+    prev.disabled = idx === 0;
+    next.disabled = idx === items.length - 1;
+    fit();
+  }
+  function clock() {
+    var s = Math.floor((Date.now() - t0) / 1000);
+    timer.textContent = String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+    timer.classList.toggle("over", s >= 600);
+  }
+  function open(i) {
+    back = document.activeElement;
+    P.hidden = false;
+    document.body.classList.add("lock");
+    t0 = Date.now(); clock();
+    clearInterval(tick); tick = setInterval(clock, 1000);
+    show(i);
+    next.focus();
+  }
+  function close() {
+    P.hidden = true;
+    document.body.classList.remove("lock");
+    clearInterval(tick);
+    if (document.fullscreenElement && document.exitFullscreen) { document.exitFullscreen().catch(function () {}); }
+    if (back && back.focus) back.focus();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("[data-present]"), function (b) {
+    b.addEventListener("click", function () { open(parseInt(b.getAttribute("data-present"), 10) || 0); });
+  });
+  prev.addEventListener("click", function () { show(idx - 1); });
+  next.addEventListener("click", function () { show(idx + 1); });
+  closeBtn.addEventListener("click", close);
+  reset.addEventListener("click", function () { t0 = Date.now(); clock(); });
+  toggle.addEventListener("click", function () {
+    notes.hidden = !notes.hidden;
+    toggle.textContent = notes.hidden ? "Show notes" : "Hide notes";
+    toggle.setAttribute("aria-pressed", String(!notes.hidden));
+    fit();
+  });
+  if (!document.fullscreenEnabled || !P.requestFullscreen) {
+    fs.hidden = true;
+  } else {
+    fs.addEventListener("click", function () {
+      if (document.fullscreenElement) { document.exitFullscreen().catch(function () {}); }
+      else { P.requestFullscreen().catch(function () { fs.hidden = true; }); }
+    });
+    document.addEventListener("fullscreenchange", function () {
+      fs.textContent = document.fullscreenElement ? "Exit full screen" : "Full screen";
+      setTimeout(fit, 60);
+    });
+  }
+  window.addEventListener("resize", fit);
+  document.addEventListener("keydown", function (e) {
+    if (P.hidden) return;
+    if (e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); show(idx + 1); }
+    else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); show(idx - 1); }
+    else if (e.key === "Escape" && !document.fullscreenElement) { close(); }
+    else if ((e.key === "n" || e.key === "N") && !e.ctrlKey && !e.metaKey) { toggle.click(); }
+  });
+  wrap.addEventListener("touchstart", function (e) { sx = e.touches[0].clientX; }, { passive: true });
+  wrap.addEventListener("touchend", function (e) {
+    if (sx === null) return;
+    var dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 40) show(idx + (dx < 0 ? 1 : -1));
+    sx = null;
+  });
+})();
+</script>
+
+</body>
+</html>
