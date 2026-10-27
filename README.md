@@ -9,4 +9,4 @@ A one-page reference for the SRM IST Ramapuram Ph.D (Computer Science and Engine
 
 Live page: https://arulbenjaminchandru.github.io/phd-prep/
 
-The whole site is a single self-contained `index.html` served by GitHub Pages. There is no build step: edit `index.html` and push.
+The whole site is a single self-contained `index.html` served by GitHub Pages. There is no build step. GitHub Pages publishes the `gh-pages` branch, which mirrors `main`; after editing `index.html` on `main`, run `git push origin main main:gh-pages`.
